@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/journey-page', function () {
+    return view('book_trip.journey_page');
+})->name('journey_page');
