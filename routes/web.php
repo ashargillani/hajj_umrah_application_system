@@ -18,3 +18,6 @@ Route::get('/', function () {
 Route::get('/journey-page', function () {
     return view('book_trip.journey_page');
 })->name('journey_page');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
