@@ -1,2 +1,24 @@
+.margin-top-bottom-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
-/** ADD YOUR AWESOME CODES HERE **/
+.margin-top-bottom-20 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.margin-left-right-10 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.margin-left-right-20 {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.full-width-breadcrumbs {
+    padding: 10px;
+
+}
