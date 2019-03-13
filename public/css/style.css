@@ -2208,7 +2208,7 @@ select.mobile-device {
     font-weight: 400;
     font-size: 20px;
     text-transform: capitalize;
-    line-height: !important;
+    line-height: 4px !important;
 }
 
 .footer {
@@ -3128,7 +3128,7 @@ select.mobile-device {
 
 
 .banner-bg-1{
-	background: url(../uploads/inner-bg.jpg);
+	background: url(../uploads/inner-bg-medina.jpg);
 	padding: 120px 0;	
 	background-clip: initial;
 	background-color: rgba(0, 0, 0, 0);
@@ -3149,7 +3149,7 @@ select.mobile-device {
 	top: 0;
 	width: 100%;
 	z-index: -1;
-	background: rgba(205, 213, 31, 0.8);
+	background: rgba(205, 213, 31, 0.5);
 }
 
 .banner{
@@ -3168,12 +3168,12 @@ select.mobile-device {
 .banner h2::after {
     background: #201e21;
     content: "";
-    height: 22px;
+    height: 40px;
     left: 0px;
 	right: 0px;
 	margin: 0 auto;
     position: absolute;
-    top: 8px;
+    top: 7px;
     width: 30%;
 }
 
