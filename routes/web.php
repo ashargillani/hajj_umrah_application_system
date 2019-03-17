@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('home_main');
-});
+})->name('home');it
 
 Route::get('/journey-page', function () {
     return view('book_trip.journey_page');
@@ -21,6 +21,7 @@ Route::get('/journey-page', function () {
 
 Auth::routes();
 
+Route::get('/login', 'HomeController@index')->name('login');
 
 Route::get('/home', 'HomeController@index')->name('home');
 //////////////////////////////////////////////////////////// Provider

@@ -22,3 +22,37 @@
     padding: 10px;
 
 }
+
+.form-text-style {
+    color: #999;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 33px;
+    margin-left: 15px;
+}
+
+.custom-checkbox {
+    -ms-transform: scale(1.7);
+    -moz-transform: scale(1.7);
+    -webkit-transform: scale(1.7);
+    -o-transform: scale(1.7);
+    padding: 4px;
+    bottom: 10px;
+}
+
+label.form-check-label {
+    margin-left: 5px;
+}
+
+form legend {
+    font-size: 1.4rem;
+    padding: 15px 0;
+    font-family: "Segoe UI",Arial,sans-serif;
+    font-weight: 400;
+    color: black;
+}
+
+div.custom-hr {
+    margin: 1% 6% 2%;
+    border-bottom: 0.4px solid #d8d6d6;
+}

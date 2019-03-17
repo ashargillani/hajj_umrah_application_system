@@ -14,7 +14,7 @@
                                 <h1 class="homepage-three-title">Welcome to  <span>Haj/Umrah</span> application processing system</h1>
                                 <h2>Our website provides the best travel packages for Haj & Umrah, <br>you can buy the best offered packages here and compare them too !</h2>
                                 <div class="slider-content-btn">
-                                    <a class="btn11" href="{{ route('journey_page') }}"><span>Start New Quote &nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></span><div class="transition"></div></a>
+                                    <a class="btn11" href="{{ route('journey_page') }}"><span>Book your trip &nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></span><div class="transition"></div></a>
                                 </div>
                             </div>
                         </div>

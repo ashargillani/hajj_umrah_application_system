@@ -19,14 +19,14 @@ ul{
 }
 
 #breadcrumbs-one a{
-    padding: 0.9em 6em 0.9em 7em;
+    padding: 0.9em 5.2em 0.9em 6.4em;
     float: left;
     text-decoration: none;
-    color: #444;
     position: relative;
     text-shadow: 0 1px 0 rgba(255,255,255,.5);
-    background-color: #ededed;
+    background-color: #384a68;
     font-size: 15px;
+    color: white;
     /*background-image: linear-gradient(to right, #f5f5f5, #ddd);*/
 }
 
@@ -52,7 +52,7 @@ ul{
 
 #breadcrumbs-one a::after{
     z-index: 2;
-    border-left-color: #ededed;
+    border-left-color: #384a68;
 }
 
 #breadcrumbs-one a::before{
@@ -67,8 +67,7 @@ ul{
 
 #breadcrumbs-one .current,
 #breadcrumbs-one .current:hover{
-    font-weight: bold;
-    background: none;
+    background: #680b46;
 }
 
 #breadcrumbs-one .current::after,
