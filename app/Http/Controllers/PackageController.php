@@ -14,7 +14,8 @@ class PackageController extends Controller
      */
     public function index()
     {
-        //
+        $packages = Package::all();
+        return view('provider.packages.index')->with('packages', $packages);
     }
 
     /**
@@ -24,7 +25,7 @@ class PackageController extends Controller
      */
     public function create()
     {
-        //
+        return view('provider.packages.create');
     }
 
     /**
@@ -35,7 +36,34 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $package = new Package();
+        $package->class = $request->input('packageClass');
+        $package->totalDays = $request->input('totalDays');
+        $package->route = $request->input('route');
+        $package->packageStars = $request->input('packageStars');
+        $package->type = $request->input('packageType');
+        $package->departureDate = $request->input('departureDate');
+        $package->arrivalDate = $request->input('arrivalDate');
+        $package->makkahDays = $request->input('daysMakkah');
+        $package->medinaDays = $request->input('daysMedina');
+        $package->flights = $request->input('flights');
+        $package->packageBeds = $request->input('packageBeds');
+        $package->price = $request->input('price');
+        $package->infantDiscount = $request->input('infantDiscount');
+        $package->toddlerDiscount = $request->input('toddlerDiscount');
+        $package->overFiveDiscount = $request->input('overFiveDiscount');
+        $package->visa = ($request->get('visa') === 'on');
+        $package->draft = ($request->get('draft') === 'on');
+        $package->food = ($request->get('food') === 'on');
+        $package->qurbani = ($request->get('qurbani') === 'on');
+        $package->transfers = ($request->get('transfers') === 'on');
+        $package->ziyaarah = ($request->get('ziyaarah') === 'on');
+        $package->hotelId = 1;
+        $package->providerId = 1;
+
+        $package->save();
+
+        return redirect('/provider/packages')->with('success', 'Package Created');
     }
 
     /**
@@ -46,7 +74,7 @@ class PackageController extends Controller
      */
     public function show(Package $package)
     {
-        //
+        return view('provider.packages.show')->with('package', $package);
     }
 
     /**
@@ -57,7 +85,7 @@ class PackageController extends Controller
      */
     public function edit(Package $package)
     {
-        //
+        return view('provider.packages.edit')->with('package', $package);
     }
 
     /**
@@ -69,7 +97,33 @@ class PackageController extends Controller
      */
     public function update(Request $request, Package $package)
     {
-        //
+        $package->class = $request->input('packageClass');
+        $package->totalDays = $request->input('totalDays');
+        $package->route = $request->input('route');
+        $package->packageStars = $request->input('packageStars');
+        $package->type = $request->input('packageType');
+        $package->departureDate = $request->input('departureDate');
+        $package->arrivalDate = $request->input('arrivalDate');
+        $package->makkahDays = $request->input('daysMakkah');
+        $package->medinaDays = $request->input('daysMedina');
+        $package->flights = $request->input('flights');
+        $package->packageBeds = $request->input('packageBeds');
+        $package->price = $request->input('price');
+        $package->infantDiscount = $request->input('infantDiscount');
+        $package->toddlerDiscount = $request->input('toddlerDiscount');
+        $package->overFiveDiscount = $request->input('overFiveDiscount');
+        $package->visa = ($request->get('visa') === 'on');
+        $package->draft = ($request->get('draft') === 'on');
+        $package->food = ($request->get('food') === 'on');
+        $package->qurbani = ($request->get('qurbani') === 'on');
+        $package->transfers = ($request->get('transfers') === 'on');
+        $package->ziyaarah = ($request->get('ziyaarah') === 'on');
+        $package->hotelId = 1;
+        $package->providerId = 1;
+
+        $package->save();
+
+        return redirect('/provider/packages')->with('success', 'Package Updated');
     }
 
     /**
@@ -80,6 +134,7 @@ class PackageController extends Controller
      */
     public function destroy(Package $package)
     {
-        //
+        $package->delete();
+        return redirect('/provider/packages')->with('success', 'Package Deleted');
     }
 }
