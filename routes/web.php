@@ -21,4 +21,4 @@ Route::get('/journey-page', function () {
 
 Auth::routes();
 
-Route::get('/login', 'HomeController@index')->name('login');
+Route::get('/home', 'HomeController@index');
