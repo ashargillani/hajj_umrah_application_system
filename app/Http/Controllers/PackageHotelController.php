@@ -59,7 +59,7 @@ class PackageHotelController extends Controller
      */
     public function show(PackageHotel $packageHotel)
     {
-        return view('provider.hotels.show')->with('packageHotel', $packageHotel);
+        return view('provider.hotels.show')->with('hotel', $packageHotel);
     }
 
     /**
