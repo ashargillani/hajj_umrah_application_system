@@ -3,7 +3,7 @@
     <link href="{{ asset('css/breadcrumbs.css') }}" rel="stylesheet">
 @endsection
 @section('page-content')
-    <a href="{{url('provider/packages')}}" class="btn btn-default" style="margin:10px">GO BACK</a>
+    <a href="{{route('packages.index')}}" class="btn btn-default" style="margin:10px">GO BACK</a>
     <div class="container" style="padding:20px">
         <h1>Class: {{$package->class}}</h1>
         <h3>Days: {{$package->totalDays}}</h3>
@@ -20,8 +20,8 @@
             {{($package->ziyaarah == 1)?' Ziyaarah ':''}}
         </p>
         <hr>
-        <a href="/provider/packages/{{$package->id}}/edit" class="btn btn-success">Edit</a>
-        <form action="provider/packages/{{ $package->id }}" method="POST">
+        <a href="{{ route('packages.edit', $package) }}" class="btn btn-success">Edit</a>
+        <form action="{{route('packages.destroy', $package)}}" method="POST">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <button type="submit" name="deleteBtn" class="btn btn-danger">Delete</button>

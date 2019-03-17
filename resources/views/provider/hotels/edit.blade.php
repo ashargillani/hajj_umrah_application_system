@@ -5,7 +5,7 @@
 @section('page-content')
     <div class="container-fluid margin-left-right-10">
         <div class="new-package-page-form">
-            <form action="provider/hotels/{{ $packageHotel->id }}" method="POST">
+            <form action={{ route('hotels.update', $hotel)}} method="POST">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                 <fieldset>
@@ -13,13 +13,13 @@
                     <div class="form-group row">
                         <label for="hotelName" class="col-sm-4 col-form-label">Hotel Name</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="hotelName" name="hotelName" value = {{$packageHotel->name}}>
+                            <input type="text" class="form-control" id="hotelName" name="hotelName" value = {{$hotel->name}}>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="hotelAddress" class="col-sm-4 col-form-label">Hotel Address</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="hotelAddress" name="hotelAddress" value = "$packageHotel->address">
+                            <input type="text" class="form-control" id="hotelAddress" name="hotelAddress" value = {{$hotel->address}}>
                         </div>
                     </div>
                     <div class="form-group row">

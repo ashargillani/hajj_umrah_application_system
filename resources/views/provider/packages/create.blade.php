@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="new-package-page-form">
-            <form action="{{ action('PackageController@store') }}" method="POST">
+            <form action="{{ route('packages.create') }}" method="POST">
                 {{ csrf_field() }}
                 <fieldset>
                     <legend>Your Package Details :</legend>

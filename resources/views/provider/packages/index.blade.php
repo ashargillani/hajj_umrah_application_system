@@ -9,7 +9,7 @@
             @foreach($packages as $package)
                 <div class="container">
                     <div class="well">
-                        <h2><a href="/provider/packages/{{$package->id}}"> {{$package->class}} Class </a></h2>
+                        <h2><a href="{{ route('packages.show', $package) }}"> {{$package->class}} Class </a></h2>
                         <p>{{$package->packageStars}} Stars</p>
                         <h3>Price: {{$package->price}}</h3>
                     </div>
