@@ -14,7 +14,8 @@ class PackageHotelController extends Controller
      */
     public function index()
     {
-        //
+        $hotels = PackageHotel::all();
+        return view('provider.hotels.index')->with('hotels', $hotels);
     }
 
     /**
@@ -24,7 +25,7 @@ class PackageHotelController extends Controller
      */
     public function create()
     {
-        //
+        return view('provider.hotels.create');
     }
 
     /**
@@ -35,7 +36,19 @@ class PackageHotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*$this->validate($request,[
+            'hotelName' => 'required',
+            'hotelAddress' => 'required',
+            'hotelStars' => 'required'
+        ]);*/
+
+        $packageHotel = new PackageHotel();
+        $packageHotel->name = $request->input('hotelName');
+        $packageHotel->address = $request->input('hotelAddress');
+        $packageHotel->stars = $request->input('hotelStars');
+        $packageHotel->save();
+
+        return redirect('/provider/hotels')->with('success', 'Hotel Created');
     }
 
     /**
@@ -46,7 +59,7 @@ class PackageHotelController extends Controller
      */
     public function show(PackageHotel $packageHotel)
     {
-        //
+        return view('provider.hotels.show')->with('packageHotel', $packageHotel);
     }
 
     /**
@@ -57,7 +70,7 @@ class PackageHotelController extends Controller
      */
     public function edit(PackageHotel $packageHotel)
     {
-        //
+        return view('provider.hotels.edit')->with('packageHotel', $packageHotel);
     }
 
     /**
@@ -69,7 +82,12 @@ class PackageHotelController extends Controller
      */
     public function update(Request $request, PackageHotel $packageHotel)
     {
-        //
+        $packageHotel->name = $request->input('hotelName');
+        $packageHotel->address = $request->input('hotelAddress');
+        $packageHotel->stars = $request->input('hotelStars');
+        $packageHotel->save();
+
+        return redirect('/provider/hotels')->with('success', 'Hotel Updated');
     }
 
     /**
@@ -80,6 +98,7 @@ class PackageHotelController extends Controller
      */
     public function destroy(PackageHotel $packageHotel)
     {
-        //
+        $packageHotel->delete();
+        return redirect('/provider/hotels')->with('success', 'Hotel Deleted');
     }
 }

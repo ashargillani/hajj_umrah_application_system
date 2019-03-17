@@ -22,3 +22,8 @@ Route::get('/journey-page', function () {
 Auth::routes();
 
 Route::get('/login', 'HomeController@index')->name('login');
+
+Route::get('/home', 'HomeController@index')->name('home');
+//////////////////////////////////////////////////////////// Provider
+Route::resource('provider/packages', 'PackageController');
+Route::resource('provider/hotels', 'PackageHotelController');
