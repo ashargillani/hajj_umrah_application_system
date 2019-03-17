@@ -5,7 +5,7 @@
 @section('page-content')
     <div class="container-fluid margin-left-right-10">
         <div class="new-package-page-form">
-            <form action="{{ action('PackageHotelController@store') }}" method="POST">
+            <form action="{{ route('hotels.store') }}" method="POST">
                 {{ csrf_field() }}
                 <fieldset>
                     <legend align="center">Add New Hotel</legend>

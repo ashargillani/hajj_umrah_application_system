@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="new-package-page-form">
-            <form action="provider/packages/{{ $package->id }}" method="POST">
+            <form action={{ route('packages.update', $package)}} method="POST">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                  <fieldset>

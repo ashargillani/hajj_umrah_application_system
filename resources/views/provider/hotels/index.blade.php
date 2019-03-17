@@ -8,7 +8,7 @@
         @if(count($hotels) >= 1)
             @foreach($hotels as $hotel)
                 <div class="well">
-                    <h3><a href="/provider/hotels/{{$hotel->id}}/edit"> {{$hotel->name}} </a></h3>
+                    <h3><a href="{{ route('hotels.show', $hotel) }}"> {{$hotel->name}} </a></h3>
                     <small>Address: {{$hotel->address}}</small>
                     <p>{{$hotel->stars}} Stars</p>
                 </div>

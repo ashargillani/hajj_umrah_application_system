@@ -57,9 +57,9 @@ class PackageHotelController extends Controller
      * @param  \App\PackageHotel  $packageHotel
      * @return \Illuminate\Http\Response
      */
-    public function show(PackageHotel $packageHotel)
+    public function show(PackageHotel $hotel)
     {
-        return view('provider.hotels.show')->with('hotel', $packageHotel);
+        return view('provider.hotels.show')->with('hotel', $hotel);
     }
 
     /**
@@ -68,9 +68,9 @@ class PackageHotelController extends Controller
      * @param  \App\PackageHotel  $packageHotel
      * @return \Illuminate\Http\Response
      */
-    public function edit(PackageHotel $packageHotel)
+    public function edit(PackageHotel $hotel)
     {
-        return view('provider.hotels.edit')->with('packageHotel', $packageHotel);
+        return view('provider.hotels.edit')->with('hotel', $hotel);
     }
 
     /**
@@ -80,12 +80,12 @@ class PackageHotelController extends Controller
      * @param  \App\PackageHotel  $packageHotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PackageHotel $packageHotel)
+    public function update(Request $request, PackageHotel $hotel)
     {
-        $packageHotel->name = $request->input('hotelName');
-        $packageHotel->address = $request->input('hotelAddress');
-        $packageHotel->stars = $request->input('hotelStars');
-        $packageHotel->save();
+        $hotel->name = $request->input('hotelName');
+        $hotel->address = $request->input('hotelAddress');
+        $hotel->stars = $request->input('hotelStars');
+        $hotel->save();
 
         return redirect('/provider/hotels')->with('success', 'Hotel Updated');
     }
@@ -96,9 +96,9 @@ class PackageHotelController extends Controller
      * @param  \App\PackageHotel  $packageHotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PackageHotel $packageHotel)
+    public function destroy(PackageHotel $hotel)
     {
-        $packageHotel->delete();
+        $hotel->delete();
         return redirect('/provider/hotels')->with('success', 'Hotel Deleted');
     }
 }
