@@ -2,6 +2,9 @@
 @section('page-title')
     Home - Hajj & Umrah Application processing system.
 @endsection
+@if (Auth::user()->hasRole('admin'))
+    <a href="...">This can only be seen by admins</a>
+@endif
 @section('page-content')
 <div class="slider-area">
     <div class="slider-wrapper owl-carousel">

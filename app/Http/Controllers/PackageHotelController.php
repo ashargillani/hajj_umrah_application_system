@@ -14,8 +14,15 @@ class PackageHotelController extends Controller
      */
     public function index()
     {
+        $user = \Auth::user();
+
         $hotels = PackageHotel::all();
-        return view('provider.hotels.index')->with('hotels', $hotels);
+        if (  $user->role_id == 2 ) {
+            return view('home_main');
+        } else {
+            return view('provider.hotels.index')->with('hotels', $hotels);
+        }
+        //return view('provider.hotels.index')->with('hotels', $hotels);
     }
 
     /**
@@ -54,7 +61,7 @@ class PackageHotelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\PackageHotel  $packageHotel
+     * @param  \App\PackageHotel  $hotel
      * @return \Illuminate\Http\Response
      */
     public function show(PackageHotel $hotel)
@@ -65,7 +72,7 @@ class PackageHotelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\PackageHotel  $packageHotel
+     * @param  \App\PackageHotel  $hotel
      * @return \Illuminate\Http\Response
      */
     public function edit(PackageHotel $hotel)
@@ -77,7 +84,7 @@ class PackageHotelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PackageHotel  $packageHotel
+     * @param  \App\PackageHotel  $hotel
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, PackageHotel $hotel)
@@ -93,7 +100,7 @@ class PackageHotelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PackageHotel  $packageHotel
+     * @param  \App\PackageHotel  $hotel
      * @return \Illuminate\Http\Response
      */
     public function destroy(PackageHotel $hotel)
