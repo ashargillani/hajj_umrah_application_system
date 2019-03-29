@@ -14,6 +14,8 @@ class PackageController extends Controller
      */
     public function index()
     {
+        $user = \Auth::user();
+        dd($user->hasRole('admin'));
         $packages = Package::all();
         return view('provider.packages.index')->with('packages', $packages);
     }

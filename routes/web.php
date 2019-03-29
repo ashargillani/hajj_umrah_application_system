@@ -23,6 +23,14 @@ Route::get('/journey-page', function () {
     return view('book_trip.journey_page');
 })->name('journey_page');
 
+Route::get('/journey-page-2', function () {
+    return view('book_trip.journey_page_2');
+})->name('journey_page_2');
+
+Route::get('/page-test', function () {
+    return view('provider.layout.provider-main');
+});
+
 Auth::routes();
 
 //Route::get('/login', 'HomeController@index')->name('login');
