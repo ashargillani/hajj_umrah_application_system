@@ -29,12 +29,6 @@
             <a href="#"><i class="fa fa-object-ungroup sidebar-style"></i> &nbsp; Assets </a>
         </li>
         <li>
-            <a href="#"<i class="fa fa-money sidebar-style"></i> &nbsp; Depreciation report </a>
-        </li>
-        <li>
-            <a href="#"><i class="fa fa-sitemap sidebar-style"></i>  &nbsp; Allowance report </a>
-        </li>
-        <li>
             <a href="#"><i class="fa fa-cubes sidebar-style"></i> &nbsp; Company tax report</a>
         </li>
         <li>
@@ -56,7 +50,7 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
-                <i class="fa  fa-power-off sidebar-style" style="color:red;"></i> &nbsp; Log Out
+                <i class="fa  fa-power-off sidebar-style"></i> &nbsp; Log Out
             </a>
         </li>
     </ul>

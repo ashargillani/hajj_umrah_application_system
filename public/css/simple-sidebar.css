@@ -73,6 +73,7 @@
     text-decoration: none;
     color: #76838f;
     font-size: 15px;
+    margin-left: 8px;
 }
 
 .sidebar-nav li a:hover {
