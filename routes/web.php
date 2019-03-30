@@ -39,3 +39,33 @@ Auth::routes();
 //////////////////////////////////////////////////////////// Provider
 Route::resource('provider/packages', 'PackageController');
 Route::resource('provider/hotels', 'PackageHotelController');
+
+Route::get('admin/index-provider', [
+    'as' => 'provider.index',
+    'uses' => 'UserController@indexProvider'
+]);
+Route::get('admin/create-provider', [
+    'as' => 'provider.create',
+    'uses' => 'UserController@createProvider'
+]);
+Route::get('admin/show-provider/{user}', [
+    'as' => 'provider.show',
+    'uses' => 'UserController@showProvider'
+]);
+Route::post('admin/store-provider', [
+    'as' => 'provider.store',
+    'uses' => 'UserController@storeProvider'
+]);
+Route::delete('admin/delete-provider/{user}', [
+    'as' => 'provider.delete',
+    'uses' => 'UserController@deleteProvider'
+]);
+Route::get('admin/edit-provider/{user}/edit', [
+    'as' => 'provider.edit',
+    'uses' => 'UserController@editProvider'
+]);
+Route::put('admin/update-provider/{user}', [
+    'as' => 'provider.update',
+    'uses' => 'UserController@updateProvider'
+]);
+
