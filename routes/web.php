@@ -41,41 +41,60 @@ Route::resource('provider/packages', 'PackageController');
 Route::resource('provider/hotels', 'PackageHotelController');
 Route::resource('provider/flights', 'FlightController');
 
-Route::get('admin/index-provider', [
-    'as' => 'provider.index',
-    'uses' => 'UserController@indexProvider'
-]);
-Route::get('admin/create-provider', [
-    'as' => 'provider.create',
-    'uses' => 'UserController@createProvider'
-]);
-Route::get('admin/show-provider/{user}', [
-    'as' => 'provider.show',
-    'uses' => 'UserController@showProvider'
-]);
-Route::post('admin/store-provider', [
-    'as' => 'provider.store',
-    'uses' => 'UserController@storeProvider'
-]);
-Route::delete('admin/delete-provider/{user}', [
-    'as' => 'provider.delete',
-    'uses' => 'UserController@deleteProvider'
-]);
-Route::get('admin/edit-provider/{user}/edit', [
-    'as' => 'provider.edit',
-    'uses' => 'UserController@editProvider'
-]);
-Route::put('admin/update-provider/{user}', [
-    'as' => 'provider.update',
-    'uses' => 'UserController@updateProvider'
-]);
+Route::prefix('admin')->group(function() {
+    Route::get('index-provider', [
+        'as' => 'provider.index',
+        'uses' => 'UserController@indexProvider'
+    ]);
 
-Route::get('provider/profile-edit', [
-    'as' => 'provider.profile_edit',
-    'uses' => 'ProviderController@editProvider'
-]);
-Route::put('provider/profile-update/{user}', [
-    'as' => 'provider.profile_update',
-    'uses' => 'ProviderController@updateProvider'
-]);
+    Route::get('create-provider', [
+        'as' => 'provider.create',
+        'uses' => 'UserController@createProvider'
+    ]);
 
+    Route::get('index-provider', [
+        'as' => 'provider.index',
+        'uses' => 'UserController@indexProvider'
+    ]);
+
+    Route::get('create-provider', [
+        'as' => 'provider.create',
+        'uses' => 'UserController@createProvider'
+    ]);
+
+    Route::get('show-provider/{user}', [
+        'as' => 'provider.show',
+        'uses' => 'UserController@showProvider'
+    ]);
+
+    Route::post('store-provider', [
+        'as' => 'provider.store',
+        'uses' => 'UserController@storeProvider'
+    ]);
+
+    Route::delete('delete-provider/{user}', [
+        'as' => 'provider.delete',
+        'uses' => 'UserController@deleteProvider'
+    ]);
+
+    Route::get('edit-provider/{user}/edit', [
+        'as' => 'provider.edit',
+        'uses' => 'UserController@editProvider'
+    ]);
+
+    Route::put('update-provider/{user}', [
+        'as' => 'provider.update',
+        'uses' => 'UserController@updateProvider'
+    ]);
+});
+
+Route::prefix('provider')->group(function () {
+    Route::get('profile-edit', [
+        'as' => 'provider.profile_edit',
+        'uses' => 'ProviderController@editProvider'
+    ]);
+    Route::put('profile-update/{user}', [
+        'as' => 'provider.profile_update',
+        'uses' => 'ProviderController@updateProvider'
+    ]);
+});

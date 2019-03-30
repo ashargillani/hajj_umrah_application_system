@@ -23,7 +23,7 @@
             <a href="#"><i class="fa fa-dashboard sidebar-style"></i> &nbsp; Dashboard</a>
         </li>
         <li>
-            <a href="#"><i class="fa fa-object-group sidebar-style"></i> &nbsp; Asset Groups</a>
+            <a href="{{ route('provider.index') }}"><i class="fa fa-object-group sidebar-style"></i> &nbsp; Package Providers</a>
         </li>
         <li>
             <a href="#"><i class="fa fa-object-ungroup sidebar-style"></i> &nbsp; Assets </a>
