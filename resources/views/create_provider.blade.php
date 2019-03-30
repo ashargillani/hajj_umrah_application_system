@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8">
                 <h2><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;Provider</h2>
-                <label>Add new provider</label>
+                <label>Add New Provider</label>
                 <hr />
             </div>
         </div>

@@ -26,6 +26,15 @@
             <a href="{{ route('provider.index') }}"><i class="fa fa-object-group sidebar-style"></i> &nbsp; Package Providers</a>
         </li>
         <li>
+            <a href="{{ route('packages.index') }}"><i class="fa fa-gift sidebar-style"></i> &nbsp; Packages</a>
+        </li>
+        <li>
+            <a href="{{ route('hotels.index') }}"><i class="fa fa-bed sidebar-style"></i> &nbsp; Hotels</a>
+        </li>
+        <li>
+            <a href="{{ route('flights.index') }}"><i class="fa fa-plane sidebar-style"></i> &nbsp; Flights</a>
+        </li>
+        <li>
             <a href="#"><i class="fa fa-object-ungroup sidebar-style"></i> &nbsp; Assets </a>
         </li>
         <li>
