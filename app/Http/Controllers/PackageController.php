@@ -14,8 +14,6 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $user = \Auth::user();
-        dd($user->hasRole('admin'));
         $packages = Package::all();
         return view('provider.packages.index')->with('packages', $packages);
     }
@@ -48,7 +46,6 @@ class PackageController extends Controller
         $package->arrivalDate = $request->input('arrivalDate');
         $package->makkahDays = $request->input('daysMakkah');
         $package->medinaDays = $request->input('daysMedina');
-        $package->flights = $request->input('flights');
         $package->packageBeds = $request->input('packageBeds');
         $package->price = $request->input('price');
         $package->infantDiscount = $request->input('infantDiscount');
@@ -108,7 +105,6 @@ class PackageController extends Controller
         $package->arrivalDate = $request->input('arrivalDate');
         $package->makkahDays = $request->input('daysMakkah');
         $package->medinaDays = $request->input('daysMedina');
-        $package->flights = $request->input('flights');
         $package->packageBeds = $request->input('packageBeds');
         $package->price = $request->input('price');
         $package->infantDiscount = $request->input('infantDiscount');

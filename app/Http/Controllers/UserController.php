@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
+
 class UserController extends Controller
 {
     /**
@@ -105,10 +106,11 @@ class UserController extends Controller
             $user = new User();
             $user->name = $request->input('name');
             $user->email = $request->input('email');
-            $user->password = $request->input('password');
+            $user->password = bcrypt($request->input('password'));
             $user->role_id = 3;
             $user->save();
-
+            $providerController = new ProviderController();
+            $providerController->createProvider($user);
             return redirect()->route('provider.index')->with('success', 'Provider Created');
         } else
         {
