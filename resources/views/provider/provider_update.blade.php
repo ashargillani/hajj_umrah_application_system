@@ -1,7 +1,4 @@
 @extends('provider.layout.provider-main')
-@section('header-additional-links')
-    <link href="{{ asset('css/breadcrumbs.css') }}" rel="stylesheet">
-@endsection
 @section('page-content')
     <div class="container-fluid margin-left-right-10">
         <div class="new-package-page-form">

@@ -52,16 +52,6 @@ Route::prefix('admin')->group(function() {
         'uses' => 'UserController@createProvider'
     ]);
 
-    Route::get('index-provider', [
-        'as' => 'provider.index',
-        'uses' => 'UserController@indexProvider'
-    ]);
-
-    Route::get('create-provider', [
-        'as' => 'provider.create',
-        'uses' => 'UserController@createProvider'
-    ]);
-
     Route::get('show-provider/{user}', [
         'as' => 'provider.show',
         'uses' => 'UserController@showProvider'
