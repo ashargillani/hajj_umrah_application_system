@@ -44,4 +44,8 @@ class User extends \TCG\Voyager\Models\User
     {
         return null !== $this->roles()->where('roles.name', $role)->first();
     }
+
+    public function getUsersByRoleName($roleName) {
+        $this->roles()->where('roles.name', $roleName)->get();
+    }
 }

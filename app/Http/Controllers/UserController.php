@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use TCG\Voyager\Models\Role;
 
 class UserController extends Controller
 {
@@ -85,7 +86,10 @@ class UserController extends Controller
 
     public function indexProvider()
     {
-        $users = User::all()->where('role_id', 3);
+        $users = User::whereHas('roles', function ($query) {
+            $query->where('roles.name', '=', 'PackageProvider');
+        })->get();
+
         return view('index_provider')->with('users', $users);
     }
 
@@ -102,12 +106,15 @@ class UserController extends Controller
     public function storeProvider(Request $request)
     {
         if ($request->input('password') == $request->input('confirmPassword')) {
+            $providerRole = Role::where('name', 'PackageProvider')->first();
             $user = new User();
             $user->name = $request->input('name');
             $user->email = $request->input('email');
-            $user->password = $request->input('password');
-            $user->role_id = 3;
+            $user->password = bcrypt($request->input('password'));
+            $user->role_id = $providerRole->id;
             $user->save();
+            $user = User::where('name', $user->name)->first();
+            $user->roles()->attach($providerRole);
 
             return redirect()->route('provider.index')->with('success', 'Provider Created');
         } else

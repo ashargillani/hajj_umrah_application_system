@@ -4,11 +4,17 @@
 
 body {
     font-family: Open Sans,sans-serif;
+    background: #f9f9f9;
 }
 
 div#wrapper {
     font-family: Open Sans,sans-serif;
     font-weight: 400;
+}
+
+div#page-content-wrapper {
+    background: #f9f9f9;
+    font-family: Open Sans,sans-serif;
 }
 
 ul.sidebar-nav {
@@ -403,6 +409,36 @@ ul.nav.navbar-nav.navbar-right > li.dropdown.profile > ul.dropdown-menu >li {
 
 div.page-content {
     padding: 0 16px;
+}
+
+.panel-form {
+    padding: 2% 2%;
+    margin-top: 25px;
+}
+
+.panel-form .panel-body {
+    background: white;
+    padding: 20px 20px 5px;
+    font-family: Open Sans,sans-serif;
+    font-size: 14px;
+    color: #76838f;
+    border-radius: 4px;
+}
+
+.m-10-top {
+    margin-top: 10px;
+}
+
+.m-10-bottom {
+    margin-bottom: 10px;
+}
+
+.m-20-top {
+    margin-top: 20px;
+}
+
+.m-20-bottom {
+    margin-bottom: 20px;
 }
 
 @media (min-width: 768px) {
