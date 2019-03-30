@@ -1,7 +1,4 @@
-@extends('layout.master')
-@section('header-additional-links')
-    <link href="{{ asset('css/breadcrumbs.css') }}" rel="stylesheet">
-@endsection
+@extends('provider.layout.provider-main')
 @section('page-content')
     <a href="{{route('flights.index')}}" class="btn btn-default" style="margin:10px">GO BACK</a>
 
