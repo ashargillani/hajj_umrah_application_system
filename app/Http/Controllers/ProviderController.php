@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Provider;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProviderController extends Controller
 {
@@ -81,6 +83,46 @@ class ProviderController extends Controller
     public function destroy(Provider $provider)
     {
         //
+    }
+
+    public function createProvider(User $user)
+    {
+        $provider = new Provider();
+        $provider->userId = $user->id;
+        $provider->save();
+    }
+
+    public function editProvider()
+    {
+        $user = \Auth::user();
+        $provider = Provider::where('userId', '=', $user->id)->first();
+        $data = [
+            'user'  => $user,
+            'provider'   => $provider
+        ];
+        return view('provider.provider_update')->with('data', $data);
+    }
+
+    public function updateProvider(User $user, Request $request)
+    {
+        $provider = Provider::where('userId', '=', $user->id)->first();
+        if (Hash::check($request->input('oldPassword'), $user->password)){
+            if ($request->input('newPassword') == $request->input('confirmPassword')) {
+                $user->password = bcrypt($request->input('newPassword'));
+                $user->save();
+                $provider->city = $request->input('city');
+                $provider->address = $request->input('address');
+                $provider->organizationName = $request->input('orgName');
+                $provider->phoneNumber = $request->input('phoneNumber');
+                $provider->save();
+                return redirect()->route('provider.index')->with('success', 'Provider Created');
+            } else
+            {
+                return 'New Password and Confirm Password does not match.';
+            }
+        } else {
+            return 'Incorrect Old Password.';
+        }
     }
 
 

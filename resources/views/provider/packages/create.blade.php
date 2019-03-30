@@ -106,12 +106,6 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="flights" class="col-sm-4 col-form-label">Flight</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="flights" name="flights" placeholder="Saudi Airline">
-                        </div>
-                    </div>
-                    <div class="form-group row">
                         <label for="packageBeds" class="col-sm-4 col-form-label">How many beds in the Package?</label>
                         <div class="col-sm-4">
                             <select class="form-control" name="packageBeds" id="packageBeds">

@@ -39,6 +39,7 @@ Auth::routes();
 //////////////////////////////////////////////////////////// Provider
 Route::resource('provider/packages', 'PackageController');
 Route::resource('provider/hotels', 'PackageHotelController');
+Route::resource('provider/flights', 'FlightController');
 
 Route::get('admin/index-provider', [
     'as' => 'provider.index',
@@ -67,5 +68,14 @@ Route::get('admin/edit-provider/{user}/edit', [
 Route::put('admin/update-provider/{user}', [
     'as' => 'provider.update',
     'uses' => 'UserController@updateProvider'
+]);
+
+Route::get('provider/profile-edit', [
+    'as' => 'provider.profile_edit',
+    'uses' => 'ProviderController@editProvider'
+]);
+Route::put('provider/profile-update/{user}', [
+    'as' => 'provider.profile_update',
+    'uses' => 'ProviderController@updateProvider'
 ]);
 
