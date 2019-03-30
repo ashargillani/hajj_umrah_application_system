@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use TCG\Voyager\Models\Role;
 
+
 class UserController extends Controller
 {
     /**
@@ -115,6 +116,8 @@ class UserController extends Controller
             $user->save();
             $user = User::where('name', $user->name)->first();
             $user->roles()->attach($providerRole);
+            $providerController = new ProviderController();
+            $providerController->createProvider($user);
 
             return redirect()->route('provider.index')->with('success', 'Provider Created');
         } else

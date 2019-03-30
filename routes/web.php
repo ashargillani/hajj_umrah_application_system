@@ -39,6 +39,7 @@ Auth::routes();
 //////////////////////////////////////////////////////////// Provider
 Route::resource('provider/packages', 'PackageController');
 Route::resource('provider/hotels', 'PackageHotelController');
+Route::resource('provider/flights', 'FlightController');
 
 Route::prefix('admin')->group(function() {
     Route::get('index-provider', [
@@ -84,5 +85,16 @@ Route::prefix('admin')->group(function() {
     Route::put('update-provider/{user}', [
         'as' => 'provider.update',
         'uses' => 'UserController@updateProvider'
+    ]);
+});
+
+Route::prefix('provider')->group(function () {
+    Route::get('profile-edit', [
+        'as' => 'provider.profile_edit',
+        'uses' => 'ProviderController@editProvider'
+    ]);
+    Route::put('profile-update/{user}', [
+        'as' => 'provider.profile_update',
+        'uses' => 'ProviderController@updateProvider'
     ]);
 });
