@@ -37,8 +37,8 @@
                         </a>
                     </li>
                     <li>
-                        <form action="http://127.0.0.1:8000/admin/logout" method="POST">
-                            <input type="hidden" name="_token" value="zDCoBnfkskcECFuNSeGdyBh6ngfVWqRQ0XeEVjWX">
+                        <form action="{{ route('voyager.logout') }}" method="POST">
+                            {{ csrf_field() }}
                             <button type="submit" class="btn btn-danger btn-block">
                                 <i class="fa fa-power-off"></i>
                                 Logout

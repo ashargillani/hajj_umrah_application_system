@@ -31,17 +31,7 @@ Route::get('/page-test', function () {
     return view('provider.layout.provider-main');
 });
 
-Auth::routes();
-
-//Route::get('/login', 'HomeController@index')->name('login');
-
-//Route::get('/home', 'HomeController@index')->name('home');
-//////////////////////////////////////////////////////////// Provider
-Route::resource('provider/packages', 'PackageController');
-Route::resource('provider/hotels', 'PackageHotelController');
-Route::resource('provider/flights', 'FlightController');
-
-Route::prefix('admin')->group(function() {
+Route::prefix('admin')->middleware('auth')->group(function() {
     Route::get('index-provider', [
         'as' => 'provider.index',
         'uses' => 'UserController@indexProvider'
@@ -78,13 +68,19 @@ Route::prefix('admin')->group(function() {
     ]);
 });
 
-Route::prefix('provider')->group(function () {
+Route::prefix('provider')->middleware('auth')->group(function () {
+
     Route::get('profile-edit', [
         'as' => 'provider.profile_edit',
         'uses' => 'ProviderController@editProvider'
     ]);
+
     Route::put('profile-update/{user}', [
         'as' => 'provider.profile_update',
         'uses' => 'ProviderController@updateProvider'
     ]);
+
+    Route::resource('packages', 'PackageController');
+    Route::resource('hotels', 'PackageHotelController');
+    Route::resource('flights', 'FlightController');
 });

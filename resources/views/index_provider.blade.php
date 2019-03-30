@@ -46,7 +46,7 @@
                                         <td>{{ $user->created_at }}</td>
                                         <td>{{ $user->updated_at }}</td>
                                         <td>
-                                            <a href="{{ route('provider.update', ['user' => $user]) }}">
+                                            <a href="{{ route('provider.edit', ['user' => $user]) }}">
                                                 <button class="btn btn-info">Edit</button>
                                             </a>
                                         </td>

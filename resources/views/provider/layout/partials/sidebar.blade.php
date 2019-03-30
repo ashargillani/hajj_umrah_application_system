@@ -6,7 +6,15 @@
                     <div class="logo-icon-container">
                         <i class="fa fa-cubes fa-2x"></i>
                     </div>
-                    <div class="title">Voyager</div>
+                    <div class="title">
+                        @if(Auth::user() && Auth::user()->hasRole('admin'))
+                            Admin
+                        @elseif(Auth::user() && Auth::user()->hasRole('PackageProvider'))
+                            Package Provider
+                        @else
+                            User
+                        @endif
+                    </div>
                 </a>
             </div>
             <div class="panel widget center bgimage" style="background-image:url(http://127.0.0.1:8000/admin/assets/images/bg.jpg); background-size: cover; background-position: 0px;">
@@ -35,28 +43,10 @@
             <a href="{{ route('flights.index') }}"><i class="fa fa-plane sidebar-style"></i> &nbsp; Flights</a>
         </li>
         <li>
-            <a href="#"><i class="fa fa-object-ungroup sidebar-style"></i> &nbsp; Assets </a>
-        </li>
-        <li>
-            <a href="#"><i class="fa fa-cubes sidebar-style"></i> &nbsp; Company tax report</a>
-        </li>
-        <li>
-            <a href="#"><i class="fa  fa-money sidebar-style"></i>  &nbsp; Minimum tax report</a>
-        </li>
-        <li>
-            <a href="#"><i class="fa  fa-money sidebar-style"></i>  &nbsp; Maximum tax report</a>
-        </li>
-        <li>
-            <a href="#"><i class="fa  fa-list sidebar-style"></i>  &nbsp; All reports</a>
-        </li>
-        <li>
-            <a href="#"><i class="fa fa-user sidebar-style" ></i> &nbsp; My Account</a>
-        </li>
-        <li>
-            <a href="{{ route('logout') }}"
+            <a href="{{ route('voyager.logout') }}"
                onclick="event.preventDefault();
 					document.getElementById('logout-form').submit();">
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <form id="logout-form" action="{{ route('voyager.logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
                 <i class="fa  fa-power-off sidebar-style"></i> &nbsp; Log Out
