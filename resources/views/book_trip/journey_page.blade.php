@@ -534,7 +534,7 @@
                     </fieldset>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary pull-right">Proceed <i class="fa fa-arrow-right"></i></button>
+                            <button type="submit" class="btn btn-primary pull-right" onclick="location.href = '{{ route('journey_page_2') }}'">Proceed <i class="fa fa-arrow-right"></i></button>
                         </div>
                     </div>
                 </form>

@@ -36,24 +36,115 @@
                 <form>
                     <fieldset>
                         <div class="col-sm-10 custom-hr"></div>
-                        <legend>Your Trip Details :</legend>
+                        <legend>Your Details :</legend>
                         <div class="form-group row">
-                            <div class="col-sm-5">Do you know the number of people travelling? Tick Yes or NO</div>
+                            <label for="personTitle" class="col-sm-5 col-form-label">Your title:</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="personTitle" id="personTitle">
+                                    <option selected disabled>Please choose</option>
+                                    <option>Mr.</option>
+                                    <option>Mrs.</option>
+                                    <option>Ms.</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="firstName" class="col-sm-5 col-form-label">First Name: </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lastName" class="col-sm-5 col-form-label">Last Name: </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="dateOfBirth" class="col-sm-5 col-form-label">Date of Birth: </label>
+                            <div class="col-sm-6">
+                                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-5">Would you like to travel in group from your city ? Yes or NO</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="gridCheck1">
-                                    <label class="form-check-label" for="gridCheck1">
+                                    <input class="form-check-input custom-checkbox" type="checkbox" id="travellingInGroup" name="travellingInGroup">
+                                    <label class="form-check-label" for="travellingInGroup">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="gridCheck1">
-                                    <label class="form-check-label" for="gridCheck1">
+                                    <input class="form-check-input custom-checkbox" type="checkbox" id="travellingInGroup" name="travellingInGroup">
+                                    <label class="form-check-label" for="travellingInGroup">
                                         No
                                     </label>
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="houseNumber" class="col-sm-5 col-form-label">House Number: </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="houseNumber" name="houseNumber" placeholder="12-A">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-5">What is your post-code ? So we can find the deals closer to you</div>
+                            <label for="postCode" class="col-sm-5 col-form-label">Post Code: </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="postCode" name="postCode" placeholder="22010">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="milesForRightPackage" class="col-sm-5 col-form-label">How many miles are you willing to travel for the right package ?</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="milesForRightPackage" id="milesForRightPackage">
+                                    <option selected disabled>None</option>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>40</option>
+                                    <option>50</option>
+                                    <option>60</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="ethnicity" class="col-sm-5 col-form-label">What is your ethnicity ? Please State: </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="ethnicity" name="ethnicity" placeholder="12-A">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="passportType" class="col-sm-5 col-form-label">How many miles are you willing to travel for the right package ?</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="passportType" id="passportType">
+                                    <option selected disabled>Passport Type: </option>
+                                    <option>A valid british UK passport ?</option>
+                                    <option>Other countries</option>
+                                    <option>Please state</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-5">Is it valid for at-least 6+ months from the date of travel ? Please mark Yes or No ( If no, please apply for a new passport, you can still reserve a place by making payment )</div>
+                            <div class="col-sm-6">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input custom-checkbox" type="checkbox" id="passportValidity" name="passportValidity">
+                                    <label class="form-check-label" for="passportValidity">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input custom-checkbox" type="checkbox" id="passportValidity" name="passportValidity">
+                                    <label class="form-check-label" for="passportValidity">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="noOfAdults" class="col-sm-5 col-form-label">Number of adults travelling</label>
                             <div class="col-sm-6">
