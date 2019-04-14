@@ -1,4 +1,9 @@
 @extends('provider.layout.provider-main')
+@section('page-breadcrumb')
+    <li><i class="fa fa-home"></i><a href="{{ route('provider.dashboard') }}">Dashboard</a></li>
+    <li><a href="{{ route('provider.index') }}">Provider</a></li>
+    <li><a href="">Edit Profile</a></li>
+@endsection
 @section('page-content')
     <div class="panel-form">
         <div class="row">

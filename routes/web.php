@@ -83,4 +83,8 @@ Route::prefix('provider')->middleware('auth')->group(function () {
     Route::resource('packages', 'PackageController');
     Route::resource('hotels', 'PackageHotelController');
     Route::resource('flights', 'FlightController');
+    Route::get('dashboard', [
+        'as' => 'provider.dashboard',
+        'uses' => 'ProviderController@index'
+    ]);
 });

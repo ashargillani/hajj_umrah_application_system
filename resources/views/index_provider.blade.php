@@ -1,4 +1,8 @@
 @extends('provider.layout.provider-main')
+@section('page-breadcrumb')
+    <li><i class="fa fa-home"></i><a href="{{ route('provider.dashboard') }}">Dashboard</a></li>
+    <li><a href="{{ route('provider.index') }}">Provider</a></li>
+@endsection
 @section('page-content')
     <div class="panel-form">
         <div class="row">
@@ -38,6 +42,7 @@
                             <tbody>
                                 @if(count($users) >= 1)
                                     @foreach($users as $user)
+                                    <tr>
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
@@ -51,10 +56,17 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('provider.delete', ['user' => $user]) }}">
-                                                <button class="btn btn-danger">Delete</button>
-                                            </a>
+                                            <form method="POST" action="{{ route('provider.delete', [
+                                                'user' => $user
+                                            ]) }}">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <a href="">
+                                                <input type="submit" class="btn btn-danger delete-user" value="Delete">
+                                                </a>
+                                            </form>
                                         </td>
+                                    </tr>
                                     @endforeach
                                 @else
                                     <tr>
@@ -74,4 +86,12 @@
 @section('additional-scripts')
     <script src="{{ asset('js/datatables.min.js') }}" type="text/javascript"></script>
     @include('provider.layout.partials.datatables')
+    <script>
+        $('.delete-user').click(function(e){
+            e.preventDefault() // Don't post the form, unless confirmed
+            if (confirm('Are you sure you want to delete the provider ?')) {
+                $(e.target).closest('form').submit() // Post the surrounding form
+            }
+        });
+    </script>
 @endsection

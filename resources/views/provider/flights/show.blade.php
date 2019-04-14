@@ -1,4 +1,9 @@
 @extends('provider.layout.provider-main')
+@section('page-breadcrumb')
+    <li><i class="fa fa-home"></i><a href="{{ route('provider.dashboard') }}">Dashboard</a></li>
+    <li><a href="{{ route('flights.index') }}">Flights</a></li>
+    <li><a href="#">View Flight</a></li>
+@endsection
 @section('page-content')
     <a href="{{route('flights.index')}}" class="btn btn-default" style="margin:10px">GO BACK</a>
 

@@ -28,7 +28,7 @@
         </div>
         <div></div>
         <li>
-            <a href="#"><i class="fa fa-dashboard sidebar-style"></i> &nbsp; Dashboard</a>
+            <a href="{{ route('provider.dashboard') }}"><i class="fa fa-dashboard sidebar-style"></i> &nbsp; Dashboard</a>
         </li>
         <li>
             <a href="{{ route('provider.index') }}"><i class="fa fa-object-group sidebar-style"></i> &nbsp; Package Providers</a>

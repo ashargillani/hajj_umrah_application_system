@@ -149,6 +149,6 @@ class UserController extends Controller
     public function deleteProvider(User $user)
     {
             $user->delete();
-            return redirect()->route('provider.index')->with('success', 'Hotel Deleted');
+            return back();
     }
 }

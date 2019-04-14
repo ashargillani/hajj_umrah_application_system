@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Flight;
+use App\Package;
+use App\PackageHotel;
 use App\Provider;
 use App\User;
 use Illuminate\Http\Request;
@@ -16,7 +19,22 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        //
+
+        $provider = Provider::all();
+        $providerCount = $provider->count();
+        $packages = Package::all();
+        $packagesCount = $packages->count();
+        $flight = Flight::all();
+        $flightCount = $flight->count();
+        $hotels = PackageHotel::all();
+        $hotelsCount = $hotels->count();
+
+        return view('provider.dashboard')->with([
+            'providerCount' => $providerCount,
+            'packagesCount' => $packagesCount,
+            'flightCount' => $flightCount,
+            'hotelsCount' => $hotelsCount
+        ]);
     }
 
     /**

@@ -6,10 +6,7 @@
                 <span class="hamburger-inner fa fa-code"></span>
             </button>
             <ul class="breadcrumb">
-                <li><i class="fa fa-home"></i><a href="#">Home</a></li>
-                <li><a href="#">Pictures</a></li>
-                <li><a href="#">Summer 15</a></li>
-                <li>Italy</li>
+                @yield('page-breadcrumb')
             </ul>
         </div>
         <ul class="nav navbar-nav  navbar-right ">

@@ -27,7 +27,7 @@
     width: 0;
     height: 100%;
     margin-left: -250px;
-    overflow-y: hidden;
+    overflow-y: unset;
     background: #fff;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
