@@ -99,7 +99,7 @@
                             <div class="form-group row">
                                 <label for="daysMedina" class="col-sm-2 col-form-label">No of Days in Medina</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="daysMedina" name="daysMedina" value = {{$package->maedinaDays}}>
+                                    <input type="number" class="form-control" id="daysMedina" name="daysMedina" value = {{$package->medinaDays}}>
                                 </div>
                             </div>
                             <div class="form-group row">
