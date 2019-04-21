@@ -34,6 +34,7 @@
             </div>
             <div class="journey-page-form form-text-style">
                 <form>
+                    <input type="hidden" id="userinfo_page" value="userinfo_page_two" />
                     <fieldset>
                         <div class="col-sm-10 custom-hr"></div>
                         <legend>Your Details :</legend>
