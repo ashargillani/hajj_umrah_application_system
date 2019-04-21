@@ -58,9 +58,13 @@ class PackageController extends Controller
         $package->transfers = ($request->get('transfers') === 'on');
         $package->ziyaarah = ($request->get('ziyaarah') === 'on');
         $package->hotelId = 1;
-        $package->providerId = 1;
+        $package->providerId = 2;
+        $package->flightId = 2;
 
         $package->save();
+
+        $pictureController = new PictureController();
+        $pictureController->storePackage($request, $package);
 
         return redirect('/provider/packages')->with('success', 'Package Created');
     }
