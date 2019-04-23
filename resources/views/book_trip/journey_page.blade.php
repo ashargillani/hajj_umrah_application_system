@@ -290,7 +290,7 @@
                         <div class="form-group row">
                             <label for="form_field_peopleStayingEachRoom" class="col-sm-5 col-form-label">How many people will be staying in each room ?</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="noOfRoom" id="form_field_peopleStayingEachRoom">
+                                <select class="form-control" name="peopleStayingEachRoom" id="form_field_peopleStayingEachRoom">
                                     <option value="1" selected>1 Room</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -303,7 +303,7 @@
                         <div class="form-group row">
                             <label for="form_field_hotelStars" class="col-sm-5 col-form-label">What star hotels are you looking for ?</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="noOfRoom" id="form_field_hotelStars">
+                                <select class="form-control" name="hotelStars" id="form_field_hotelStars">
                                     <option value="1" selected>2 Star</option>
                                     <option value="1">3 Star</option>
                                     <option value="2">4 Star</option>
@@ -314,7 +314,7 @@
                         <div class="form-group row">
                             <label for="form_field_typeOfFlight" class="col-sm-5 col-form-label">What type of flight are you looking for ?</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="noOfRoom" id="form_field_typeOfFlight">
+                                <select class="form-control" name="typeOfFlight" id="form_field_typeOfFlight">
                                     <option value="1" selected>Direct</option>
                                     <option value="1">Indirect</option>
                                     <option value="2">Get me the best package</option>
