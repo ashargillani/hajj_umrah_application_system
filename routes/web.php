@@ -88,3 +88,19 @@ Route::prefix('provider')->middleware('auth')->group(function () {
         'uses' => 'ProviderController@index'
     ]);
 });
+
+//////////////////////////////////////////////////////////// Image
+Route::get('create-picture', [
+    'as' => 'picture.create',
+    'uses' => 'PictureController@createProvider'
+]);
+
+Route::post('store-picture', [
+    'as' => 'picture.store',
+    'uses' => 'PictureController@storeProvider'
+]);
+
+Route::post('user-logout', [
+    'as' => 'user.logout',
+    'uses' => 'UserController@logout'
+]);

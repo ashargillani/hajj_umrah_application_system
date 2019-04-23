@@ -35,8 +35,11 @@
                                 <th>Price</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Details</th>
+                                @if(Auth::user()->hasRole('provider'))
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -51,15 +54,24 @@
                                         <td>{{ $package->created_at }}</td>
                                         <td>{{ $package->updated_at }}</td>
                                         <td>
-                                            <a href="{{ route('packages.update', ['package' => $package]) }}">
-                                                <button class="btn btn-info">Edit</button>
+                                            <a href="{{ route('packages.show', ['package' => $package]) }}">
+                                                <button class="btn btn-info">Details</button>
                                             </a>
                                         </td>
-                                        <td>
-                                            <a href="{{ route('packages.destroy', ['package' => $package]) }}">
-                                                <button class="btn btn-danger">Delete</button>
-                                            </a>
-                                        </td>
+                                        @if(Auth::user()->hasRole('provider'))
+                                            <td>
+                                                <a href="{{ route('packages.edit', ['package' => $package]) }}">
+                                                    <button class="btn btn-info">Edit</button>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <form action="{{route('packages.destroy', $package)}}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
+                                                    <button type="submit" name="deleteBtn" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             @else

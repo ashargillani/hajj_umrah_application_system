@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <div class="panel-body">
-                    <form action="{{ route('hotels.store') }}" method="POST">
+                    <form action="{{ route('hotels.store') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <fieldset>
                             <div class="form-group row">
@@ -42,6 +42,14 @@
                                         <option value="5">5 Star</option>
                                         <option value="6">6 Star</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="filename" class="col-sm-2 col-form-label">Add Images</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group control-group increment" >
+                                        <input type="file" name="filename[]" id="filename[]" multiple class="form-control">
+                                    </div>
                                 </div>
                             </div>
 

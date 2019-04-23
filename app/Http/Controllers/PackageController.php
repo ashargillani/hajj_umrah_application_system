@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Package;
+use App\Provider;
+use App\Flight;
+use App\PackageHotel;
 use Illuminate\Http\Request;
 
 class PackageController extends Controller
@@ -25,7 +28,19 @@ class PackageController extends Controller
      */
     public function create()
     {
-        return view('provider.packages.create');
+        $flights = Flight::all();
+        $hotels = PackageHotel::all();
+        $data = [
+            'flights'  => $flights,
+            'hotels'   => $hotels
+        ];
+        $user = \Auth::user();
+        if($user->hasRole('provider')) {
+            return view('provider.packages.create')->with('data', $data);
+        }else{
+            $packages = Package::all();
+            return view('provider.packages.index')->with('packages', $packages);
+        }
     }
 
     /**
@@ -36,6 +51,9 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
+        $user = \Auth::user();
+        $provider = Provider::where('userId', $user->id)->first();
+//        dd($provider);
         $package = new Package();
         $package->class = $request->input('packageClass');
         $package->totalDays = $request->input('totalDays');
@@ -57,10 +75,14 @@ class PackageController extends Controller
         $package->qurbani = ($request->get('qurbani') === 'on');
         $package->transfers = ($request->get('transfers') === 'on');
         $package->ziyaarah = ($request->get('ziyaarah') === 'on');
-        $package->hotelId = 1;
-        $package->providerId = 1;
+        $package->hotelId = $request->input('hotelId');
+        $package->providerId = $provider->id;
+        $package->flightId = $request->input('flightId');
 
         $package->save();
+
+        $pictureController = new PictureController();
+        $pictureController->storePackage($request, $package);
 
         return redirect('/provider/packages')->with('success', 'Package Created');
     }
@@ -84,7 +106,13 @@ class PackageController extends Controller
      */
     public function edit(Package $package)
     {
-        return view('provider.packages.edit')->with('package', $package);
+        $user = \Auth::user();
+        if($user->hasRole('provider')) {
+            return view('provider.packages.edit')->with('package', $package);
+        }else{
+            $packages = Package::all();
+            return view('provider.packages.index')->with('packages', $packages);
+        }
     }
 
     /**
@@ -116,7 +144,7 @@ class PackageController extends Controller
         $package->qurbani = ($request->get('qurbani') === 'on');
         $package->transfers = ($request->get('transfers') === 'on');
         $package->ziyaarah = ($request->get('ziyaarah') === 'on');
-        $package->hotelId = 1;
+        $package->hotelId = $request->input('hotelId');
         $package->providerId = 1;
 
         $package->save();
@@ -132,7 +160,13 @@ class PackageController extends Controller
      */
     public function destroy(Package $package)
     {
-        $package->delete();
-        return redirect('/provider/packages')->with('success', 'Package Deleted');
+        $user = \Auth::user();
+        if($user->hasRole('provider')) {
+            $package->delete();
+            return redirect('/provider/packages')->with('success', 'Package Deleted');
+        }else{
+            $packages = Package::all();
+            return view('provider.packages.index')->with('packages', $packages);
+        }
     }
 }

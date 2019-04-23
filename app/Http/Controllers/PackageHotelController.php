@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\PackageHotel;
+
 use Illuminate\Http\Request;
 
 class PackageHotelController extends Controller
@@ -42,18 +43,14 @@ class PackageHotelController extends Controller
      */
     public function store(Request $request)
     {
-        /*$this->validate($request,[
-            'hotelName' => 'required',
-            'hotelAddress' => 'required',
-            'hotelStars' => 'required'
-        ]);*/
-
         $packageHotel = new PackageHotel();
         $packageHotel->name = $request->input('hotelName');
         $packageHotel->address = $request->input('hotelAddress');
         $packageHotel->stars = $request->input('hotelStars');
         $packageHotel->save();
 
+        $pictureController = new PictureController();
+        $pictureController->storeHotel($request, $packageHotel);
         return redirect('/provider/hotels')->with('success', 'Hotel Created');
     }
 

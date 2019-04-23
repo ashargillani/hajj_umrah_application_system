@@ -8,6 +8,7 @@ use TCG\Voyager\Models\Role;
 
 class User extends \TCG\Voyager\Models\User
 {
+
     use Notifiable;
 
     /**

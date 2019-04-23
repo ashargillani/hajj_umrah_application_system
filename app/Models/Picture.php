@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Provider extends Model
+class Picture extends Model
 {
-
+    //
 }

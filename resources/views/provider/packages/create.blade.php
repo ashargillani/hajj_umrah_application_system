@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <div class="panel-body">
-                    <form action="{{ route('packages.create') }}" method="POST">
+                    <form action="{{ route('packages.store') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <fieldset>
                             <div class="form-group row">
@@ -177,6 +177,40 @@
                                         <label class="form-check-label" for="gridCheck1">
                                             Ziyaarah
                                         </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="flightId" class="col-sm-2 col-form-label">Airline Name</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="flightId" id="flightId">
+                                        <option selected disabled>Flight</option>
+                                        @foreach($data['flights'] as $flight)
+                                            <option value="{{$flight->id}}">
+                                                {{$flight->airlineName}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="hotelId" class="col-sm-2 col-form-label">Hotel Name</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="hotelId" id="hotelId">
+                                        <option selected disabled>Hotel</option>
+                                        @foreach($data['hotels'] as $hotel)
+                                            <option value="{{$hotel->id}}">
+                                                {{$hotel->name}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="filename" class="col-sm-2 col-form-label">Add Images</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group control-group increment" >
+                                        <input type="file" name="filename[]" id="filename[]" multiple class="form-control">
                                     </div>
                                 </div>
                             </div>
