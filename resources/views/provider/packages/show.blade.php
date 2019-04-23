@@ -197,12 +197,6 @@
                 </div>
             </div>
         </div>
-        <a href="{{ route('packages.edit', $package) }}" class="btn btn-success">Edit</a>
-        <form action="{{route('packages.destroy', $package)}}" method="POST">
-            {{ csrf_field() }}
-            {{ method_field('DELETE') }}
-            <button type="submit" name="deleteBtn" class="btn btn-danger">Delete</button>
-        </form>
     </div>
 @endsection
 
