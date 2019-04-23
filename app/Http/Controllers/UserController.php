@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use TCG\Voyager\Models\Role;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -107,7 +108,7 @@ class UserController extends Controller
     public function storeProvider(Request $request)
     {
         if ($request->input('password') == $request->input('confirmPassword')) {
-            $providerRole = Role::where('name', 'PackageProvider')->first();
+            $providerRole = Role::where('name', 'provider')->first();
             $user = new User();
             $user->name = $request->input('name');
             $user->email = $request->input('email');
@@ -115,7 +116,7 @@ class UserController extends Controller
             $user->role_id = $providerRole->id;
             $user->save();
             $user = User::where('name', $user->name)->first();
-            $user->roles()->attach($providerRole);
+            DB::insert('INSERT INTO user_roles (user_id, role_id) VALUES (?, ?)', [$user->id, $providerRole->id]);
             $providerController = new ProviderController();
             $providerController->createProvider($user);
 
@@ -150,5 +151,11 @@ class UserController extends Controller
     {
             $user->delete();
             return back();
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('voyager.login');
     }
 }

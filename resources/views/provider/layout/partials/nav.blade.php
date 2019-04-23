@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li>
-                        <form action="{{ route('voyager.logout') }}" method="POST">
+                        <form action="{{ route('user.logout') }}" method="POST">
                             {{ csrf_field() }}
                             <button type="submit" class="btn btn-danger btn-block">
                                 <i class="fa fa-power-off"></i>

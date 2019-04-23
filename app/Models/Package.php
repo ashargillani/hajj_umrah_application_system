@@ -10,4 +10,12 @@ class Package extends Model
     {
         return $this->hasMany('App\Picture', 'packageId');
     }
+    public function flight()
+    {
+        return $this->hasOne('App\Flight','flightId');
+    }
+    public function provider()
+    {
+        return $this->hasOne('App\Provider', 'providerId');
+    }
 }

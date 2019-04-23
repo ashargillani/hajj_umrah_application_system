@@ -181,6 +181,32 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="flightId" class="col-sm-2 col-form-label">Airline Name</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="flightId" id="flightId">
+                                        <option selected disabled>Flight</option>
+                                        @foreach($data['flights'] as $flight)
+                                            <option value="{{$flight->id}}">
+                                                {{$flight->airlineName}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="hotelId" class="col-sm-2 col-form-label">Hotel Name</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="hotelId" id="hotelId">
+                                        <option selected disabled>Hotel</option>
+                                        @foreach($data['hotels'] as $hotel)
+                                            <option value="{{$hotel->id}}">
+                                                {{$hotel->name}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="filename" class="col-sm-2 col-form-label">Add Images</label>
                                 <div class="col-sm-10">
                                     <div class="input-group control-group increment" >
