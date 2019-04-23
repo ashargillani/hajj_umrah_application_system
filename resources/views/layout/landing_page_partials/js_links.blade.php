@@ -4,3 +4,4 @@
 <script src="{{ asset('js/custom.js') }}"></script>
 <script src="{{ asset('js/portfolio.js') }}"></script>
 <script src="{{ asset('js/hoverdir.js') }}"></script>
+@yield('body-additional-js-links')
