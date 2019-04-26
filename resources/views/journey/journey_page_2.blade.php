@@ -62,6 +62,18 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="form_field_dateOfBirth" class="col-sm-5 col-form-label">Date of Birth: </label>
+                            <div class="col-sm-6">
+                                <input type="date" class="form-control" id="form_field_dateOfBirth" name="dateOfBirth">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="address" class="col-sm-5 col-form-label">Address: </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="form_field_relationshipStatus" class="col-sm-5 col-form-label">Your Relationship Status:</label>
                             <div class="col-sm-6">
                                 <select class="form-control" name="relationshipStatus" id="form_field_relationshipStatus">
@@ -70,12 +82,6 @@
                                     <option>Divorced</option>
                                     <option>Widowed</option>
                                 </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="form_field_dateOfBirth" class="col-sm-5 col-form-label">Date of Birth: </label>
-                            <div class="col-sm-6">
-                                <input type="date" class="form-control" id="form_field_dateOfBirth" name="dateOfBirth">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -97,7 +103,6 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-5">What is your post-code ? So we can find the deals closer to you</div>
-                            <label for="form_field_postCode" class="col-sm-5 col-form-label">Post Code: </label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="form_field_postCode" name="postCode" placeholder="22010">
                             </div>
@@ -135,9 +140,8 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-5">Please state the passport you have:</div>
-                            <label for="form_field_otherPassportCountry" class="col-sm-5 col-form-label">Post Code: </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="form_field_otherPassportCountry" name="otherPassportCountry" placeholder="22010">
+                                <input type="text" class="form-control" id="form_field_otherPassportCountry" name="otherPassportCountry" placeholder="Pakistan">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -161,17 +165,23 @@
                             <div class="col-sm-5">Do you have any health conditions that you need to make the travel agents aware of ?</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_healthConditions" name="healthConditions">
-                                    <label class="form-check-label" for="form_field_healthConditions">
+                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_healthConditionsBool" name="healthConditionsBool">
+                                    <label class="form-check-label" for="form_field_healthConditionsBool">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_healthConditions" name="healthConditions">
-                                    <label class="form-check-label" for="form_field_healthConditions">
+                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_healthConditionsBool" name="healthConditionsBool">
+                                    <label class="form-check-label" for="form_field_healthConditionsBool">
                                         No
                                     </label>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="healthConditions" class="col-sm-5 col-form-label">Health Conditions: </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="form_field_healthConditions" name="healthConditions" placeholder="Health Conditions">
                             </div>
                         </div>
                         <div class="form-group row">
