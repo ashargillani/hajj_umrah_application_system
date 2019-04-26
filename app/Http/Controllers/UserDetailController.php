@@ -37,21 +37,21 @@ class UserDetailController extends Controller
     {
         $user = \Auth::user();
         $userDetail = new UserDetail();
-        $userDetail->title = $request->input('');
-        $userDetail->first_name = $request->input('');
-        $userDetail->last_name = $request->input('');
-        $userDetail->dob = $request->input('');
-        $userDetail->address = $request->input('');
-        $userDetail->relationship_status = $request->input('');
-        $userDetail->post_code = $request->input('');
-        $userDetail->ethnicity = $request->input('');
-        $userDetail->passport = $request->input('');
-        $userDetail->valid_passport = $request->input('');
-        $userDetail->health_conditions_bool = $request->input('');
-        $userDetail->health_conditions = $request->input('');
-        $userDetail->require_assistance = $request->input('');
-        $userDetail->visited_saudi = $request->input('');
-        $userDetail->additional_passenger = $request->input('');
+        $userDetail->title = $request->input('personTitle');
+        $userDetail->first_name = $request->input('firstName');
+        $userDetail->last_name = $request->input('lastName');
+        $userDetail->dob = $request->input('dateOfBirth');
+        $userDetail->address = $request->input('address');
+        $userDetail->relationship_status = $request->input('relationshipStatus');
+        $userDetail->post_code = $request->input('postCode');
+        $userDetail->ethnicity = $request->input('ethnicity');
+        $userDetail->passport = $request->input('otherPassportCountry');
+        $userDetail->valid_passport = $request->input('passportValidity');
+        $userDetail->health_conditions_bool = $request->input('healthConditionsBool');
+        $userDetail->health_conditions = $request->input('healthConditions');
+        $userDetail->require_assistance = $request->input('agentAssistance');
+        $userDetail->visited_saudi = $request->input('beenToSaudia');
+        $userDetail->additional_passenger = $request->input('additionalPassengersTravelling');
         $userDetail->user_id = $user->id;
 
         $userDetail->save();
@@ -88,23 +88,21 @@ class UserDetailController extends Controller
      */
     public function update(Request $request, UserDetail $userDetail)
     {
-        $user = \Auth::user();
-        $userDetail->title = $request->input('');
-        $userDetail->first_name = $request->input('');
-        $userDetail->last_name = $request->input('');
-        $userDetail->dob = $request->input('');
-        $userDetail->address = $request->input('');
-        $userDetail->relationship_status = $request->input('');
-        $userDetail->post_code = $request->input('');
-        $userDetail->ethnicity = $request->input('');
-        $userDetail->passport = $request->input('');
-        $userDetail->valid_passport = $request->input('');
-        $userDetail->health_conditions_bool = $request->input('');
-        $userDetail->health_conditions = $request->input('');
-        $userDetail->require_assistance = $request->input('');
-        $userDetail->visited_saudi = $request->input('');
-        $userDetail->additional_passenger = $request->input('');
-        $userDetail->user_id = $user->id;
+        $userDetail->title = $request->input('personTitle');
+        $userDetail->first_name = $request->input('firstName');
+        $userDetail->last_name = $request->input('lastName');
+        $userDetail->dob = $request->input('dateOfBirth');
+        $userDetail->address = $request->input('address');
+        $userDetail->relationship_status = $request->input('relationshipStatus');
+        $userDetail->post_code = $request->input('postCode');
+        $userDetail->ethnicity = $request->input('ethnicity');
+        $userDetail->passport = $request->input('otherPassportCountry');
+        $userDetail->valid_passport = $request->input('passportValidity');
+        $userDetail->health_conditions_bool = $request->input('healthConditionsBool');
+        $userDetail->health_conditions = $request->input('healthConditions');
+        $userDetail->require_assistance = $request->input('agentAssistance');
+        $userDetail->visited_saudi = $request->input('beenToSaudia');
+        $userDetail->additional_passenger = $request->input('additionalPassengersTravelling');
 
         $userDetail->save();
     }
