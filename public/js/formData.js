@@ -12,9 +12,8 @@ formData = {
         return $("#userinfo_page").val();
     },
     setFormFieldsFromLocalStorage : function () {
-        let formFields = this.getFormFields();
         if(localStorage.getItem(this.getFormType()) !== "undefined") {
-            formFields = JSON.parse(localStorage.getItem(this.getFormType()));
+            this.formFields = JSON.parse(localStorage.getItem(this.getFormType()));
         }
     },
     getFormFields : function () {
@@ -22,9 +21,9 @@ formData = {
     },
     setFormFields : function () {
         let formFields = this.getFormFields();
-        let formFieldLength = formFields.length;
-        for (var i = 0; i < formFieldLength; i++) {
-            this.setFieldValue(this.formFields[i].key, this.formFields[i].value);
+        for (const key in formFields) {
+            let value = formFields[key];
+            this.setFieldValue(key, value);
         }
     },
     setFieldValue: function(key, value) {
@@ -36,8 +35,9 @@ formData = {
         localStorage.setItem(formType, JSON.stringify(formFields));
     },
     updateFormFieldsOnChange: function () {
+        let formData = this;
         let formFields = this.getFormFields();
-        $("input[id^='form_field_']").on("change", function () {
+        $("[id^='form_field_']").on("change", function () {
             formFields[$(this).attr("name")] = $(this).val();
             formData.updateValuesInLocalStorage();
         });
