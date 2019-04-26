@@ -20,11 +20,11 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/journey-page', function () {
-    return view('book_trip.journey_page');
+    return view('journey.journey_page');
 })->name('journey_page');
 
 Route::get('/journey-page-2', function () {
-    return view('book_trip.journey_page_2');
+    return view('journey.journey_page_2');
 })->name('journey_page_2');
 
 Route::get('/page-test', function () {
@@ -103,4 +103,14 @@ Route::post('store-picture', [
 Route::post('user-logout', [
     'as' => 'user.logout',
     'uses' => 'UserController@logout'
+]);
+
+Route::get('create-journey', [
+    'as' => 'journey.create',
+    'uses' => 'UserJourneyController@createJourney'
+]);
+
+Route::post('store-journey', [
+    'as' => 'journey.store',
+    'uses' => 'UserJourneyController@storeJourney'
 ]);

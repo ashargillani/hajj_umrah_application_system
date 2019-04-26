@@ -42,17 +42,23 @@
                             <div class="col-sm-5">Do you know the number of people travelling? Tick Yes or NO</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_gridCheck1">
+                                    <input class="form-check-input custom-checkbox" type="checkbox" name="noOfPeopleBool" id="form_field_gridCheck1">
                                     <label class="form-check-label" for="gridCheck1">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_gridCheck1">
+                                    <input class="form-check-input custom-checkbox" type="checkbox" name="noOfPeopleBool" id="form_field_gridCheck1">
                                     <label class="form-check-label" for="gridCheck1">
                                         No
                                     </label>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="form_field_noOfPeople" class="col-sm-5 col-form-label">Number of people travelling in total</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="form_field_noOfPeople" name="noOfPeople" placeholder="5">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -89,12 +95,6 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="form_field_noOfPeople" class="col-sm-5 col-form-label">Number of people travelling in total</label>
-                            <div class="col-sm-6">
-                                <input type="number" class="form-control" id="form_field_noOfPeople" name="noOfPeople" placeholder="5">
-                            </div>
-                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Package Details:</legend>
@@ -102,19 +102,19 @@
                         <div class="form-group row">
                             <label for="form_field_packageType" class="col-sm-5 col-form-label">Please choose from the list:</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="packageType" id="form_field_packageType">
+                                <select class="form-control" name="packageClass" id="form_field_packageClass">
                                     <option selected disabled>Choose Package</option>
-                                    <option>Premium - Economical</option>
-                                    <option>Premium - Valuable</option>
-                                    <option>Deluxe - Reasonably priced</option>
-                                    <option>Platinum - Executive Price</option>
+                                    <option value = "Economy">Premium - Economical</option>
+                                    <option value = "Premium">Premium - Valuable</option>
+                                    <option value = "Deluxe">Deluxe - Reasonably priced</option>
+                                    <option value = "Premium">Platinum - Executive Price</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="form_field_shiftingPackage" class="col-sm-5 col-form-label">Is this a shifting or non-shifting package ? Please choose from the list</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="shiftingPackage" id="form_field_shiftingPackage">
+                                <select class="form-control" name="packageType" id="form_field_packageType">
                                     <option selected disabled>Select</option>
                                     <option value="shifting">S - Moving around</option>
                                     <option value="non-shifting">NS - Set to one location</option>
@@ -125,13 +125,13 @@
                             <div class="col-sm-5">Where would you like to go first ? Tick the checkbox</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" value="Makkah" name="firstRoute" id="form_field_firstRoute" />
+                                    <input class="form-check-input custom-checkbox" type="checkbox" value="Makkah/Medina" name="route" id="form_field_route" />
                                     <label class="form-check-label" for="form_field_firstRoute">
                                         Makkah
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" value="Medina" name="firstRoute" id="form_field_firstRoute">
+                                    <input class="form-check-input custom-checkbox" type="checkbox" value="Medina/Makkah" name="route" id="form_field_route">
                                     <label class="form-check-label" for="form_field_firstRoute">
                                         Medina
                                     </label>
@@ -165,7 +165,7 @@
                         <div class="form-group row">
                             <label for="form_field_visitDuration" class="col-sm-5 col-form-label">How long are you planning to stay ?</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="visitDuration" id="form_field_visitDuration">
+                                <select class="form-control" name="total_days" id="form_field_total_days">
                                     <option selected disabled>Set your stay duration</option>
                                     <option value="14">14 days or less</option>
                                     <option value="21">21 days or less</option>
@@ -224,7 +224,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="form_field_preferredArrivalDate" class="col-sm-5 col-form-label">Departure Date :</label>
+                            <label for="form_field_preferredArrivalDate" class="col-sm-5 col-form-label">Arrival Date :</label>
                             <div class="col-sm-6">
                                 <input class="form-control" type="date" name="preferredArrivalDate" id="form_field_preferredArrivalDate" />
                             </div>
@@ -232,7 +232,7 @@
                         <div class="form-group row">
                             <label for="form_field_travellingWith" class="col-sm-5 col-form-label">Who are you going with)(grid) ?</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="visitTimeline" id="form_field_travellingWith">
+                                <select class="form-control" name="travellingWith" id="form_field_travellingWith">
                                     <option selected disabled>Choose from Grid</option>
                                     <option>Spouse</option>
                                     <option>Spouse + Children</option>
@@ -250,13 +250,13 @@
                             <div class="col-sm-5">Do you want to share a room ?</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" value="Makkah" name="shareRoom" id="form_field_shareRoom" />
+                                    <input class="form-check-input custom-checkbox" type="checkbox" value="1" name="shareRoom" id="form_field_shareRoom" />
                                     <label class="form-check-label" for="form_field_shareRoom">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" value="Medina" name="shareRoom" id="form_field_shareRoom">
+                                    <input class="form-check-input custom-checkbox" type="checkbox" value="0" name="shareRoom" id="form_field_shareRoom">
                                     <label class="form-check-label" for="form_field_shareRoom">
                                         No
                                     </label>
@@ -290,7 +290,7 @@
                         <div class="form-group row">
                             <label for="form_field_peopleStayingEachRoom" class="col-sm-5 col-form-label">How many people will be staying in each room ?</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="noOfRoom" id="form_field_peopleStayingEachRoom">
+                                <select class="form-control" name="peopleStayingEachRoom" id="form_field_peopleStayingEachRoom">
                                     <option value="1" selected>1 Room</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -303,21 +303,22 @@
                         <div class="form-group row">
                             <label for="form_field_hotelStars" class="col-sm-5 col-form-label">What star hotels are you looking for ?</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="noOfRoom" id="form_field_hotelStars">
+                                <select class="form-control" name="hotelStars" id="form_field_hotelStars">
                                     <option value="1" selected>2 Star</option>
-                                    <option value="1">3 Star</option>
-                                    <option value="2">4 Star</option>
-                                    <option value="3">5 Star</option>
+                                    <option value="2">2 Star</option>
+                                    <option value="3">3 Star</option>
+                                    <option value="4">4 Star</option>
+                                    <option value="5">5 Star</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="form_field_typeOfFlight" class="col-sm-5 col-form-label">What type of flight are you looking for ?</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="noOfRoom" id="form_field_typeOfFlight">
+                                <select class="form-control" name="typeOfFlight" id="form_field_typeOfFlight">
                                     <option value="1" selected>Direct</option>
-                                    <option value="1">Indirect</option>
-                                    <option value="2">Get me the best package</option>
+                                    <option value="2">Indirect</option>
+                                    <option value="3">Get me the best package</option>
                                 </select>
                             </div>
                         </div>
