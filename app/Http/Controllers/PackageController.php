@@ -53,7 +53,6 @@ class PackageController extends Controller
     {
         $user = \Auth::user();
         $provider = Provider::where('userId', $user->id)->first();
-//        dd($provider);
         $package = new Package();
         $package->class = $request->input('packageClass');
         $package->totalDays = $request->input('totalDays');
