@@ -43,6 +43,9 @@
             <a href="{{ route('flights.index') }}"><i class="fa fa-plane sidebar-style"></i> &nbsp; Flights</a>
         </li>
         <li>
+            <a href="{{ route('journey.index') }}"><i class="fa fa-bus sidebar-style"></i> &nbsp; Journeys</a>
+        </li>
+        <li>
             <a href="{{ route('voyager.logout') }}"
                onclick="event.preventDefault();
 					document.getElementById('logout-form').submit();">

@@ -65,16 +65,8 @@ class UserJourneyController extends Controller
         $userJourney->save();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\UserJourney  $userJourney
-     * @return \Illuminate\Http\Response
-     */
-    public function show(UserJourney $userJourney)
-    {
-        //
-    }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -139,4 +131,14 @@ class UserJourneyController extends Controller
         return view('journey.journey_page');
     }
 
+    public function indexJourney()
+    {
+        $journeys = UserJourney::all();
+        return view('journey.journey_index')->with('journeys', $journeys);
+    }
+
+    public function showJourneyPage1(UserJourney $journey)
+    {
+        return view('journey.journey_page_1_show')->with('journey', $journey);
+    }
 }

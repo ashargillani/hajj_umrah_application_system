@@ -19,7 +19,6 @@ class ProviderController extends Controller
      */
     public function index()
     {
-
         $provider = Provider::all();
         $providerCount = $provider->count();
         $packages = Package::all();
