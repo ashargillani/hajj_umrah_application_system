@@ -114,3 +114,13 @@ Route::post('store-journey', [
     'as' => 'journey.store',
     'uses' => 'UserJourneyController@storeJourney'
 ]);
+
+Route::get('journeys', [
+    'as' => 'journey.index',
+    'uses' => 'UserJourneyController@indexJourney'
+]);
+
+Route::get('journey-page-1-details', [
+    'as' => 'journey.page1.details',
+    'uses' => 'UserJourneyController@showJourneyPage1'
+]);
