@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\UserJourney;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use TCG\Voyager\Models\Role;
 
 class UserJourneyController extends Controller
 {
@@ -35,12 +38,13 @@ class UserJourneyController extends Controller
      */
     public function store(Request $request)
     {
-        $user = \Auth::user();
         $userJourney = new UserJourney();
         $userJourney->no_of_people_bool = $request->input('noOfPeopleBool');
         $userJourney->no_of_people = $request->input('noOfPeople');
         $userJourney->no_of_adults = $request->input('noOfAdults');
         $userJourney->children_travelling = $request->input('childrenTravelling');
+        //No of children travelling
+        //Children state and number use JSON
         $userJourney->children_state = $request->input('childrenState');
         $userJourney->package_class = $request->input('packageClass');
         $userJourney->package_type = $request->input('packageType');
@@ -60,9 +64,11 @@ class UserJourneyController extends Controller
         $userJourney->people_in_rooms = $request->input('peopleStayingEachRoom');
         $userJourney->hotel_stars = $request->input('hotelStars');
         $userJourney->flight_type = $request->input('typeOfFlight');
-        $userJourney->user_id = $user->id;
+        $userJourney->user_id = $request->input('userId');
 
         $userJourney->save();
+
+        return redirect()->route('journey_page_2');
     }
 
 
@@ -140,5 +146,21 @@ class UserJourneyController extends Controller
     public function showJourneyPage1(UserJourney $journey)
     {
         return view('journey.journey_page_1_show')->with('journey', $journey);
+    }
+
+    public function storeJourneyUser (Request $request) {
+        $user = User::where('email', $request->email)->first();
+        if (!$user) {
+            $user = new User();
+            $user->name = $request->firstName . ' ' . $request->lastName;
+            $user->email = $request->email;
+            $user->password = bcrypt('123456');
+            $userRole = Role::where('name', 'user')->first();
+            $user->role_id = $userRole->id;
+            $user->save();
+            DB::insert('INSERT INTO user_roles (user_id, role_id) VALUES (?, ?)', [$user->id, $userRole->id]);
+        }
+
+        return ['userId' => $user->id];
     }
 }

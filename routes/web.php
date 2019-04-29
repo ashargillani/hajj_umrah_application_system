@@ -20,7 +20,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/journey-page', function () {
-    return view('journey.journey_page');
+    return view('journey.journey_page_1');
 })->name('journey_page');
 
 Route::get('/journey-page-2', function () {
@@ -112,7 +112,12 @@ Route::get('create-journey', [
 
 Route::post('store-journey', [
     'as' => 'journey.store',
-    'uses' => 'UserJourneyController@storeJourney'
+    'uses' => 'UserJourneyController@store'
+]);
+
+Route::post('store-journey-user', [
+    'as' => 'journey.store-user',
+    'uses' => 'UserJourneyController@storeJourneyUser'
 ]);
 
 Route::get('journeys', [
