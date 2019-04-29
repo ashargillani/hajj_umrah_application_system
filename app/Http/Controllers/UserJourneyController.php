@@ -43,9 +43,8 @@ class UserJourneyController extends Controller
         $userJourney->no_of_people = $request->input('noOfPeople');
         $userJourney->no_of_adults = $request->input('noOfAdults');
         $userJourney->children_travelling = $request->input('childrenTravelling');
-        //No of children travelling
-        //Children state and number use JSON
-        $userJourney->children_state = $request->input('childrenState');
+        $userJourney->children_number_and_state = $request->input('childrenState');
+        $userJourney->number_of_children_travelling = $request->input('numberOfChildren');
         $userJourney->package_class = $request->input('packageClass');
         $userJourney->package_type = $request->input('packageType');
         $userJourney->route = $request->input('route');
@@ -54,7 +53,7 @@ class UserJourneyController extends Controller
         $userJourney->total_days = $request->input('total_days');
         $userJourney->prefferred_budget = $request->input('preferredBudget');
         $userJourney->wheelchair_access = $request->input('wheelchairAccessReason');
-        $userJourney->visitTimeline = $request->input('visitTimeline');
+        $userJourney->visit_timeline = $request->input('visitTimeline');
         $userJourney->departure_date = $request->input('preferredDepartureDate');
         $userJourney->arrival_date = $request->input('preferredArrivalDate');
         $userJourney->travelling_with = $request->input('travellingWith');
@@ -98,7 +97,8 @@ class UserJourneyController extends Controller
         $userJourney->no_of_people = $request->input('noOfPeople');
         $userJourney->no_of_adults = $request->input('noOfAdults');
         $userJourney->children_travelling = $request->input('childrenTravelling');
-        $userJourney->children_state = $request->input('childrenState');
+        $userJourney->children_number_and_state = $request->input('childrenState');
+        $userJourney->number_of_children_travelling = $request->input('numberOfChildren');
         $userJourney->package_class = $request->input('packageClass');
         $userJourney->package_type = $request->input('packageType');
         $userJourney->route = $request->input('route');
@@ -107,7 +107,7 @@ class UserJourneyController extends Controller
         $userJourney->total_days = $request->input('total_days');
         $userJourney->prefferred_budget = $request->input('preferredBudget');
         $userJourney->wheelchair_access = $request->input('wheelchairAccessReason');
-        $userJourney->visitTimeline = $request->input('visitTimeline');
+        $userJourney->visit_timeline = $request->input('visitTimeline');
         $userJourney->departure_date = $request->input('preferredDepartureDate');
         $userJourney->arrival_date = $request->input('preferredArrivalDate');
         $userJourney->travelling_with = $request->input('travellingWith');
