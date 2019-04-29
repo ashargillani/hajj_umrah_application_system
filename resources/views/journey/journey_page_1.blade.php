@@ -1,6 +1,7 @@
 @extends('layout.master')
 @section('header-additional-links')
     <link href="{{ asset('css/breadcrumbs.css') }}" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}" >
 @endsection
 @section('page-content')
     <div class="banner-area banner-bg-1">
@@ -33,7 +34,8 @@
                 </div>
             </div>
             <div class="journey-page-form form-text-style">
-                <form>
+                <form name="journeyPageOne" method="post" action="{{ route('journey.store') }}">
+                    {{ csrf_field() }}
                     <input type="hidden" id="userinfo_page" value="userinfo_page_one" />
                     <fieldset>
                         <div class="col-sm-10 custom-hr"></div>
@@ -43,28 +45,33 @@
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input custom-checkbox" type="checkbox" name="noOfPeopleBool" id="form_field_gridCheck1">
-                                    <label class="form-check-label" for="gridCheck1">
+                                    <label class="form-check-label" for="form_field_gridCheck1">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input custom-checkbox" type="checkbox" name="noOfPeopleBool" id="form_field_gridCheck1">
-                                    <label class="form-check-label" for="gridCheck1">
+                                    <label class="form-check-label" for="form_field_gridCheck1">
                                         No
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="form_field_noOfPeople" class="col-sm-5 col-form-label">Number of people travelling in total</label>
+                        <div class="form-group row no-of-adults">
+                            <label for="form_field_noOfAdults" class="col-sm-5 col-form-label"><i class="required-star">*</i> How many adults travelling ? [Including the Lead passenger]</label>
                             <div class="col-sm-6">
-                                <input type="number" class="form-control" id="form_field_noOfPeople" name="noOfPeople" placeholder="5">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="noOfAdults" class="col-sm-5 col-form-label">Number of adults travelling</label>
-                            <div class="col-sm-6">
-                                <input type="number" class="form-control" id="form_field_noOfAdults" name="noOfAdults" placeholder="5">
+                                <select class="form-control" name="noOfAdults" id="form_field_noOfAdults">
+                                    <option selected disabled value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -85,6 +92,23 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="form_field_noOfAdults" class="col-sm-5 col-form-label"><i class="required-star">*</i> How many adults travelling ? [Including the Lead passenger]</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="noOfAdults" id="form_field_noOfAdults">
+                                    <option selected disabled value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="form_field_childrenState" class="col-sm-5 col-form-label">Please choose from the list:</label>
                             <div class="col-sm-6">
                                 <select class="form-control" name="childrenState" id="form_field_childrenState">
@@ -100,7 +124,7 @@
                         <legend>Package Details:</legend>
                         <div class="col-sm-10 custom-hr"></div>
                         <div class="form-group row">
-                            <label for="form_field_packageType" class="col-sm-5 col-form-label">Please choose from the list:</label>
+                            <label for="form_field_packageClass" class="col-sm-5 col-form-label">Please choose from the list:</label>
                             <div class="col-sm-6">
                                 <select class="form-control" name="packageClass" id="form_field_packageClass">
                                     <option selected disabled>Choose Package</option>
@@ -112,7 +136,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="form_field_shiftingPackage" class="col-sm-5 col-form-label">Is this a shifting or non-shifting package ? Please choose from the list</label>
+                            <label for="form_field_packageType" class="col-sm-5 col-form-label">Is this a shifting or non-shifting package ? Please choose from the list</label>
                             <div class="col-sm-6">
                                 <select class="form-control" name="packageType" id="form_field_packageType">
                                     <option selected disabled>Select</option>
@@ -126,13 +150,13 @@
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input custom-checkbox" type="checkbox" value="Makkah/Medina" name="route" id="form_field_route" />
-                                    <label class="form-check-label" for="form_field_firstRoute">
+                                    <label class="form-check-label" for="form_field_route">
                                         Makkah
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input custom-checkbox" type="checkbox" value="Medina/Makkah" name="route" id="form_field_route">
-                                    <label class="form-check-label" for="form_field_firstRoute">
+                                    <label class="form-check-label" for="form_field_route">
                                         Medina
                                     </label>
                                 </div>
@@ -163,7 +187,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="form_field_visitDuration" class="col-sm-5 col-form-label">How long are you planning to stay ?</label>
+                            <label for="form_field_total_days" class="col-sm-5 col-form-label">How long are you planning to stay ?</label>
                             <div class="col-sm-6">
                                 <select class="form-control" name="total_days" id="form_field_total_days">
                                     <option selected disabled>Set your stay duration</option>
@@ -325,7 +349,7 @@
                     </fieldset>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary pull-right" onclick="location.href = '{{ route('journey_page_2') }}'">Proceed <i class="fa fa-arrow-right"></i></button>
+                            <button type="submit" class="btn btn-primary pull-right">Proceed <i class="fa fa-arrow-right"></i></button>
                         </div>
                     </div>
                 </form>
@@ -334,5 +358,16 @@
     </div>
 @endsection
 @section('body-additional-js-links')
+    <script type="text/javascript">
+        var noOfChildren = "";
+        $("#form_field_childrenTravelling").change(function () {
+            if(this.checked) {
+                noOfChildren = $("#form_field_noOfAdults").val();
+                for (var i = 0; i++; i < noOfChildren) {
+
+                }
+            }
+        });
+    </script>
     <script src="{{ asset('js/formData.js') }}"></script>
 @endsection

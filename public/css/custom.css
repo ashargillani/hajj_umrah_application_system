@@ -38,6 +38,7 @@
     -o-transform: scale(1.7);
     padding: 4px;
     bottom: 10px;
+    margin-left: 5px;
 }
 
 label.form-check-label {

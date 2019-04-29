@@ -1,6 +1,7 @@
 @extends('layout.master')
 @section('header-additional-links')
     <link href="{{ asset('css/breadcrumbs.css') }}" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}" >
 @endsection
 @section('page-content')
     <div class="banner-area banner-bg-1">
@@ -33,15 +34,16 @@
                 </div>
             </div>
             <div class="journey-page-form form-text-style">
-                <form>
+                <form name="journeyPageTwo" method="post" action="{{ route('journey.store') }}">
+                    {{ csrf_field() }}
                     <input type="hidden" id="userinfo_page" value="userinfo_page_two" />
                     <fieldset>
                         <div class="col-sm-10 custom-hr"></div>
                         <legend>Your Details :</legend>
                         <div class="form-group row">
-                            <label for="personTitle" class="col-sm-5 col-form-label">Your title:</label>
+                            <label for="form_field_personTitle" class="col-sm-5 col-form-label">Your title:</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="personTitle" id="personTitle">
+                                <select class="form-control" name="personTitle" id="form_field_personTitle">
                                     <option selected disabled>Please choose</option>
                                     <option>Mr.</option>
                                     <option>Mrs.</option>
@@ -50,15 +52,15 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="firstName" class="col-sm-5 col-form-label">First Name: </label>
+                            <label for="form_field_firstName" class="col-sm-5 col-form-label">First Name: </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+                                <input type="text" class="form-control" id="form_field_firstName" name="firstName" placeholder="First Name">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="lastName" class="col-sm-5 col-form-label">Last Name: </label>
+                            <label for="form_field_lastName" class="col-sm-5 col-form-label">Last Name: </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+                                <input type="text" class="form-control" id="form_field_lastName" name="lastName" placeholder="Last Name">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -68,9 +70,21 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="address" class="col-sm-5 col-form-label">Address: </label>
+                            <label for="form_field_address" class="col-sm-5 col-form-label">Address: </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+                                <textarea class="form-control" id="form_field_address" name="address" placeholder="Address"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="form_field_email" class="col-sm-5 col-form-label">Email: </label>
+                            <div class="col-sm-6">
+                                <input type="email" class="form-control" id="form_field_email" name="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="form_field_password" class="col-sm-5 col-form-label">Password : </label>
+                            <div class="col-sm-6">
+                                <input type="hidden" class="form-control" id="form_field_password" name="password">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -89,7 +103,7 @@
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_travellingInGroup" name="travellingInGroup">
-                                    <label class="form-check-label" for="travellingInGroup">
+                                    <label class="form-check-label" for="form_field_travellingInGroup">
                                         Yes
                                     </label>
                                 </div>
@@ -102,9 +116,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-5">What is your post-code ? So we can find the deals closer to you</div>
+                            <label for="form_field_postCode" class="col-sm-5 col-form-label">What is your post-code ? So we can find the deals closer to you</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="form_field_postCode" name="postCode" placeholder="22010">
+                                <input type="number" class="form-control" id="form_field_postCode" name="postCode" placeholder="22010">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -122,9 +136,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="ethnicity" class="col-sm-5 col-form-label">What is your ethnicity ? Please State: </label>
+                            <label for="form_field_ethnicity" class="col-sm-5 col-form-label">What is your ethnicity ? Please State: </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="form_field_ethnicity" name="ethnicity" placeholder="12-A">
+                                <input type="text" class="form-control" id="form_field_ethnicity" name="ethnicity" placeholder="Asian People">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -261,4 +275,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('body-additional-js-links')
+    <script src="{{ asset('js/formData.js') }}"></script>
 @endsection
