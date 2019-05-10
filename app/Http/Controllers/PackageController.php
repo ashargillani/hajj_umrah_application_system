@@ -168,4 +168,32 @@ class PackageController extends Controller
             return view('provider.packages.index')->with('packages', $packages);
         }
     }
+
+    public function suggestedPackages(Request $request)
+    {
+        $package = Package::where('totalDays',$request->input('total_days'));
+        if (!empty($package)) {
+            $package1 = $package->where('price', '>=', $request->input('preferredBudget') + 200)->where('price', '<=', $request->input('preferredBudget') - 200);
+            if (!empty($package1)) {
+                $package2 = $package1->where('class', $request->input('packageClass'));
+                if (!empty($package2)) {
+                    $package3 = $package2->where('type', $request->input('packageType'));
+                    if(!empty($package3)){
+                        $package = $package3;
+                        return $package->get();
+                    }else{
+                        $package = $package2;
+                        return $package->get();
+                    }
+                }else{
+                    $package = $package1;
+                    return $package->get();
+                }
+            }else{
+                return $package->get();
+            }
+        }else{
+            return $package->get();
+        }
+    }
 }
