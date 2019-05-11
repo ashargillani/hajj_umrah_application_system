@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Mail Driver
+    | Email Driver
     |--------------------------------------------------------------------------
     |
     | Laravel supports both SMTP and PHP's "mail" function as drivers for the
@@ -62,7 +62,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | E-Mail Encryption Protocol
+    | E-Email Encryption Protocol
     |--------------------------------------------------------------------------
     |
     | Here you may specify the encryption protocol that should be used when
@@ -103,7 +103,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Markdown Mail Settings
+    | Markdown Email Settings
     |--------------------------------------------------------------------------
     |
     | If you are using Markdown based email rendering, you may configure your

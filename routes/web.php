@@ -129,3 +129,22 @@ Route::get('journey-page-1-details', [
     'as' => 'journey.page1.details',
     'uses' => 'UserJourneyController@showJourneyPage1'
 ]);
+
+////////////////////////////////////////////////////////Email
+
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('send-basic-email', [
+        'as' => 'mail.basic',
+        'uses' => 'MailController@basic_email'
+    ]);
+    Route::get('send-html-email', [
+        'as' => 'mail.html',
+        'uses' => 'MailController@html_email'
+    ]);
+    Route::get('send-attachment-email', [
+        'as' => 'mail.attachment',
+        'uses' => 'MailController@attachment_email'
+    ]);
+    Route::resource('mails', 'MailController');
+});
