@@ -8,6 +8,6 @@ class UserJourney extends Model
 {
     public function user()
     {
-        return $this->hasOne('App\UserJourney','user_id');
+        return $this->belongsTo(User::class,'user_id');
     }
 }

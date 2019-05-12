@@ -141,13 +141,13 @@
                             <div class="col-sm-5">Where would you like to go first ? Tick the checkbox</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" value="Makkah/Medina" name="route" id="form_field_route" required/>
+                                    <input class="form-check-input custom-checkbox" type="radio" value="Makkah/Medina" name="route" id="form_field_route" required/>
                                     <label class="form-check-label" for="form_field_route">
                                         Makkah
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" value="Medina/Makkah" name="route" id="form_field_route">
+                                    <input class="form-check-input custom-checkbox" type="radio" value="Medina/Makkah" name="route" id="form_field_route">
                                     <label class="form-check-label" for="form_field_route">
                                         Medina
                                     </label>
@@ -172,7 +172,7 @@
                                 <select class="form-control" name="userExperience" id="form_field_userExperience" required>
                                     <option selected disabled>Choose an option</option>
                                     <option>Yes, first-time</option>
-                                    <option>No, I've been before</option>
+                                    <option>No, Ive been before</option>
                                     <option>No, experienced</option>
                                     <option>No, veteran</option>
                                 </select>

@@ -54,19 +54,19 @@
                         <div class="form-group row">
                             <label for="form_field_firstName" class="col-sm-5 col-form-label">First Name: </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="form_field_firstName" name="firstName" placeholder="First Name">
+                                <input type="text" class="form-control" id="form_field_firstName" name="firstName" placeholder="First Name" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="form_field_lastName" class="col-sm-5 col-form-label">Last Name: </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="form_field_lastName" name="lastName" placeholder="Last Name">
+                                <input type="text" class="form-control" id="form_field_lastName" name="lastName" placeholder="Last Name" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="form_field_dateOfBirth" class="col-sm-5 col-form-label">Date of Birth: </label>
                             <div class="col-sm-6">
-                                <input type="date" class="form-control" id="form_field_dateOfBirth" name="dateOfBirth">
+                                <input type="date" class="form-control" id="form_field_dateOfBirth" name="dateOfBirth" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -78,19 +78,19 @@
                         <div class="form-group row">
                             <label for="form_field_email" class="col-sm-5 col-form-label">Email: </label>
                             <div class="col-sm-6">
-                                <input type="email" class="form-control" id="form_field_email" name="email" placeholder="Email">
+                                <input type="email" class="form-control" id="form_field_email" name="email" placeholder="Email" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="form_field_password" class="col-sm-5 col-form-label">Password : </label>
                             <div class="col-sm-6">
-                                <input type="hidden" class="form-control" id="form_field_password" name="password">
+                                <input type="hidden" class="form-control" id="form_field_password" name="password" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="form_field_relationshipStatus" class="col-sm-5 col-form-label">Your Relationship Status:</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="relationshipStatus" id="form_field_relationshipStatus">
+                                <select class="form-control" name="relationshipStatus" id="form_field_relationshipStatus" required>
                                     <option selected disabled>Please select:</option>
                                     <option>Married</option>
                                     <option>Divorced</option>
@@ -102,13 +102,13 @@
                             <div class="col-sm-5">Would you like to travel in group from your city ? Yes or NO</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_travellingInGroup" name="travellingInGroup">
+                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_travellingInGroup" name="travellingInGroup" required>
                                     <label class="form-check-label" for="form_field_travellingInGroup">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_travellingInGroup" name="travellingInGroup">
+                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_travellingInGroup" name="travellingInGroup">
                                     <label class="form-check-label" for="form_field_travellingInGroup">
                                         No
                                     </label>
@@ -118,13 +118,13 @@
                         <div class="form-group row">
                             <label for="form_field_postCode" class="col-sm-5 col-form-label">What is your post-code ? So we can find the deals closer to you</label>
                             <div class="col-sm-6">
-                                <input type="number" class="form-control" id="form_field_postCode" name="postCode" placeholder="22010">
+                                <input type="number" class="form-control" id="form_field_postCode" name="postCode" placeholder="22010" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="form_field_milesForRightPackage" class="col-sm-5 col-form-label">How many miles are you willing to travel for the right package ?</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="milesForRightPackage" id="form_field_milesForRightPackage">
+                                <select class="form-control" name="milesForRightPackage" id="form_field_milesForRightPackage" required>
                                     <option selected disabled>Please choose:</option>
                                     <option>10</option>
                                     <option>20</option>
@@ -144,7 +144,7 @@
                         <div class="form-group row">
                             <label for="form_field_passportType" class="col-sm-5 col-form-label">What type of passport do you have ?</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="passportType" id="form_field_passportType">
+                                <select class="form-control" name="passportType" id="form_field_passportType" required>
                                     <option selected disabled>Passport Type: </option>
                                     <option>A valid british UK passport ?</option>
                                     <option>Other countries</option>
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-5">Please state the passport you have:</div>
+                            <label for="form_field_otherPassportCountry" class="col-sm-5 col-form-label">Please state the passport you have:</label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="form_field_otherPassportCountry" name="otherPassportCountry" placeholder="Pakistan">
                             </div>
@@ -179,13 +179,13 @@
                             <div class="col-sm-5">Do you have any health conditions that you need to make the travel agents aware of ?</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_healthConditionsBool" name="healthConditionsBool">
+                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_healthConditionsBool" name="healthConditionsBool">
                                     <label class="form-check-label" for="form_field_healthConditionsBool">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_healthConditionsBool" name="healthConditionsBool">
+                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_healthConditionsBool" name="healthConditionsBool">
                                     <label class="form-check-label" for="form_field_healthConditionsBool">
                                         No
                                     </label>
@@ -193,7 +193,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="healthConditions" class="col-sm-5 col-form-label">Health Conditions: </label>
+                            <label for="form_field_healthConditions" class="col-sm-5 col-form-label">Health Conditions: </label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="form_field_healthConditions" name="healthConditions" placeholder="Health Conditions">
                             </div>

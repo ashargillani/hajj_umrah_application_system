@@ -84,20 +84,20 @@ formData = {
                 dataType: 'json',
                 success: function (data){
                     userId = data.userId;
+                    let formOneData = JSON.parse(localStorage.getItem("userinfo_page_one"));
+                    formOneData["userId"] = userId;
+                    alert(userId);
+                    $.ajax({
+                        type: 'POST',
+                        url: $(formReference).attr('action'),
+                        data: formOneData,
+                        success: function (data){
+                            alert("successfully posted");
+                        }
+                    });
                 },
                 failure: function () {
                     alert("request failed !");
-                }
-            });
-            let formOneData = JSON.parse(localStorage.getItem("userinfo_page_one"));
-            formOneData["userId"] = userId;
-            $.ajax({
-                type: 'POST',
-                url: $(formReference).attr('action'),
-                data: formOneData,
-                dataType: 'json',
-                success: function (data){
-                    alert("successfully posted");
                 }
             });
         }

@@ -37,7 +37,7 @@
                                 @foreach($journeys as $journey)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $journey->user()->name }}</td>
+                                        <td>{{ $journey->user->name }}</td>
                                         <td>{{ $journey->package_class }}</td>
                                         <td>{{ $journey->package_type }}</td>
                                         <td>{{ $journey->route }}</td>
