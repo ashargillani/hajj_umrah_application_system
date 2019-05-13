@@ -46,7 +46,7 @@
                                         <td>{{ $journey->created_at }}</td>
                                         <td>{{ $journey->updated_at }}</td>
                                         <td>
-                                            <a href="{{ route('journey.page1.details', ['journey' => $journey]) }}">
+                                            <a href="{{ route('journey.page1.details', $journey)}}">
                                                 <button class="btn btn-info">Details</button>
                                             </a>
                                         </td>
