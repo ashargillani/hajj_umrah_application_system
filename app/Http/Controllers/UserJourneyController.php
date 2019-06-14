@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\UserJourney;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use TCG\Voyager\Models\Role;
@@ -39,12 +40,12 @@ class UserJourneyController extends Controller
     public function store(Request $request)
     {
         $userJourney = new UserJourney();
-        $userJourney->no_of_people_bool = $request->input('noOfPeopleBool');
+        $userJourney->no_of_people_bool = filter_var($request->input('noOfPeopleBool'), FILTER_VALIDATE_BOOLEAN);
         $userJourney->no_of_people = $request->input('noOfPeople');
         $userJourney->no_of_adults = $request->input('noOfAdults');
-        $userJourney->children_travelling = $request->input('childrenTravelling');
-        $userJourney->children_number_and_state = $request->input('childrenState');
-        $userJourney->number_of_children_travelling = $request->input('numberOfChildren');
+        $userJourney->children_travelling = filter_var($request->input('childrenTravelling'), FILTER_VALIDATE_BOOLEAN);
+        $userJourney->children_number_and_state = json_encode($request->input('childrenState'));
+        $userJourney->number_of_children_travelling = $request->input('noOfChildren');
         $userJourney->package_class = $request->input('packageClass');
         $userJourney->package_type = $request->input('packageType');
         $userJourney->route = $request->input('route');
@@ -54,10 +55,10 @@ class UserJourneyController extends Controller
         $userJourney->prefferred_budget = $request->input('preferredBudget');
         $userJourney->wheelchair_access = $request->input('wheelchairAccessReason');
         $userJourney->visit_timeline = $request->input('visitTimeline');
-        $userJourney->departure_date = $request->input('preferredDepartureDate');
-        $userJourney->arrival_date = $request->input('preferredArrivalDate');
+        $userJourney->departure_date = Carbon::parse($request->input('preferredDepartureDate'));
+        $userJourney->arrival_date = Carbon::parse($request->input('preferredArrivalDate'));
         $userJourney->travelling_with = $request->input('travellingWith');
-        $userJourney->share_room_bool = $request->input('shareRoom');
+        $userJourney->share_room_bool = filter_var($request->input('shareRoom'), FILTER_VALIDATE_BOOLEAN);
         $userJourney->share_room = $request->input('bedroomSharing');
         $userJourney->no_of_rooms = $request->input('noOfRoom');
         $userJourney->people_in_rooms = $request->input('peopleStayingEachRoom');
@@ -93,12 +94,13 @@ class UserJourneyController extends Controller
      */
     public function update(Request $request, UserJourney $userJourney)
     {
-        $userJourney->no_of_people_bool = $request->input('noOfPeopleBool');
+        $userJourney = new UserJourney();
+        $userJourney->no_of_people_bool = filter_var($request->input('noOfPeopleBool'), FILTER_VALIDATE_BOOLEAN);
         $userJourney->no_of_people = $request->input('noOfPeople');
         $userJourney->no_of_adults = $request->input('noOfAdults');
-        $userJourney->children_travelling = $request->input('childrenTravelling');
+        $userJourney->children_travelling = filter_var($request->input('childrenTravelling'), FILTER_VALIDATE_BOOLEAN);
         $userJourney->children_number_and_state = $request->input('childrenState');
-        $userJourney->number_of_children_travelling = $request->input('numberOfChildren');
+        $userJourney->number_of_children_travelling = $request->input('noOfChildren');
         $userJourney->package_class = $request->input('packageClass');
         $userJourney->package_type = $request->input('packageType');
         $userJourney->route = $request->input('route');
@@ -108,17 +110,19 @@ class UserJourneyController extends Controller
         $userJourney->prefferred_budget = $request->input('preferredBudget');
         $userJourney->wheelchair_access = $request->input('wheelchairAccessReason');
         $userJourney->visit_timeline = $request->input('visitTimeline');
-        $userJourney->departure_date = $request->input('preferredDepartureDate');
-        $userJourney->arrival_date = $request->input('preferredArrivalDate');
+        $userJourney->departure_date = Carbon::parse($request->input('preferredDepartureDate'));
+        $userJourney->arrival_date = Carbon::parse($request->input('preferredArrivalDate'));
         $userJourney->travelling_with = $request->input('travellingWith');
-        $userJourney->share_room_bool = $request->input('shareRoom');
+        $userJourney->share_room_bool = filter_var($request->input('shareRoom'), FILTER_VALIDATE_BOOLEAN);
         $userJourney->share_room = $request->input('bedroomSharing');
         $userJourney->no_of_rooms = $request->input('noOfRoom');
         $userJourney->people_in_rooms = $request->input('peopleStayingEachRoom');
         $userJourney->hotel_stars = $request->input('hotelStars');
         $userJourney->flight_type = $request->input('typeOfFlight');
+        $userJourney->user_id = $request->input('userId');
 
         $userJourney->save();
+
     }
 
     /**

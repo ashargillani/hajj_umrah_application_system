@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                         </div>
-                        @foreach(json_decode($journey->children_state) as $key=>$value)
+                        @foreach($journey->children_number_and_state as $key => $value)
                             <div class="form-group row">
                                 <label for="form_field_childrenState" class="col-sm-5 col-form-label">{{$key}}</label>
                                 <div class="col-sm-6">
@@ -92,17 +92,6 @@
                                 </div>
                             </div>
                         @endforeach
-                        <div class="form-group row">
-                            <label for="form_field_childrenState" class="col-sm-5 col-form-label">Please choose from the list:</label>
-                            <div class="col-sm-6">
-                                <select class="form-control" name="childrenState" id="form_field_childrenState" value = {{$journey->children_state}} readonly>
-                                    <option selected disabled>None</option>
-                                    <option>Toddler</option>
-                                    <option>Infant</option>
-                                    <option>Over 5</option>
-                                </select>
-                            </div>
-                        </div>
                     </fieldset>
                     <fieldset>
                         <legend>Package Details:</legend>

@@ -37,7 +37,7 @@
                                 @foreach($journeys as $journey)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $journey->user()->name }}</td>
+                                        <td>{{ $journey->user->name }}</td>
                                         <td>{{ $journey->package_class }}</td>
                                         <td>{{ $journey->package_type }}</td>
                                         <td>{{ $journey->route }}</td>
@@ -46,7 +46,7 @@
                                         <td>{{ $journey->created_at }}</td>
                                         <td>{{ $journey->updated_at }}</td>
                                         <td>
-                                            <a href="{{ route('journey.page1.details', ['journey' => $journey]) }}">
+                                            <a href="{{ route('journey.page1.details', $journey)}}">
                                                 <button class="btn btn-info">Details</button>
                                             </a>
                                         </td>

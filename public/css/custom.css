@@ -41,6 +41,11 @@
     margin-left: 5px;
 }
 
+div.child-no-and-state {
+    padding: 5px;
+    margin-left: 5px;
+}
+
 label.form-check-label {
     margin-left: 5px;
 }

@@ -25,10 +25,20 @@ formData = {
         let formFields = this.getFormFields();
         for (const key in formFields) {
             let value = formFields[key];
-            this.setFieldValue(key, value);
+            if (typeof value === 'string' || value instanceof String) {
+                let inputField =  $("input[name=" + key + "]");
+                let inputFieldType = inputField.attr("type");
+                if (inputFieldType === "radio") {
+                    inputField =  $("input[name=" + key + "][value="+ value + "]");
+                    inputField.prop("checked", true);
+                } else {
+                    this.setFieldValue(key, value);
+                }
+            }
         }
     },
     setFieldValue: function(key, value) {
+        console.log("#form_field_" + key);
         $("#form_field_"+key).val(value);
     },
     updateValuesInLocalStorage: function () {
@@ -43,6 +53,11 @@ formData = {
             formFields[$(this).attr("name")] = $(this).val();
             formData.updateValuesInLocalStorage();
         });
+    },
+    updateFormFieldsByKeyValue: function(key, value) {
+        let formFields = this.getFormFields();
+        formFields[key] = value;
+        this.updateValuesInLocalStorage();
     },
     initializeOnSubmitFunction: function (){
         $('form[name="journeyPageOne"], form[name="journeyPageTwo"]').submit(function (e) {
@@ -69,20 +84,20 @@ formData = {
                 dataType: 'json',
                 success: function (data){
                     userId = data.userId;
+                    let formOneData = JSON.parse(localStorage.getItem("userinfo_page_one"));
+                    formOneData["userId"] = userId;
+                    alert(userId);
+                    $.ajax({
+                        type: 'POST',
+                        url: $(formReference).attr('action'),
+                        data: formOneData,
+                        success: function (data){
+                            alert("successfully posted");
+                        }
+                    });
                 },
                 failure: function () {
                     alert("request failed !");
-                }
-            });
-            let formOneData = JSON.parse(localStorage.getItem("userinfo_page_one"));
-            formOneData["userId"] = userId;
-            $.ajax({
-                type: 'POST',
-                url: $(formReference).attr('action'),
-                data: formOneData,
-                dataType: 'json',
-                success: function (data){
-                    alert("successfully posted");
                 }
             });
         }

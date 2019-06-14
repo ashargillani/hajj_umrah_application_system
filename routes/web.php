@@ -125,7 +125,7 @@ Route::get('journeys', [
     'uses' => 'UserJourneyController@indexJourney'
 ]);
 
-Route::get('journey-page-1-details', [
+Route::get('journey-page-1-details/{journey}', [
     'as' => 'journey.page1.details',
     'uses' => 'UserJourneyController@showJourneyPage1'
 ]);
