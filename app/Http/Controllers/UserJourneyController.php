@@ -155,14 +155,23 @@ class UserJourneyController extends Controller
     public function storeJourneyUser (Request $request) {
         $user = User::where('email', $request->email)->first();
         if (!$user) {
-            $user = new User();
-            $user->name = $request->firstName . ' ' . $request->lastName;
-            $user->email = $request->email;
-            $user->password = bcrypt('123456');
-            $userRole = Role::where('name', 'user')->first();
-            $user->role_id = $userRole->id;
-            $user->save();
-            DB::insert('INSERT INTO user_roles (user_id, role_id) VALUES (?, ?)', [$user->id, $userRole->id]);
+            if (
+                (isset($request->firstName) && trim($request->firstName) !== '') ||
+                (isset($request->email) && trim($request->email) !== '') ||
+                (isset($request->password) && trim($request->password) !== '')
+            ) {
+                $user = new User();
+                $user->name = $request->firstName . ' ' . $request->lastName;
+                $user->email = $request->email;
+                $user->password = bcrypt($request->password);
+                $userRole = Role::where('name', 'user')->first();
+                $user->role_id = $userRole->id;
+                $user->save();
+                DB::insert('INSERT INTO user_roles (user_id, role_id) VALUES (?, ?)', [$user->id, $userRole->id]);
+            } else {
+                return 'Error: Incomplete information sent by request !';
+            }
+
         }
 
         return ['userId' => $user->id];

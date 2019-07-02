@@ -62,3 +62,15 @@ div.custom-hr {
     margin: 1% 6% 2%;
     border-bottom: 0.4px solid #d8d6d6;
 }
+
+.modal-lg {
+    max-width: 80% !important;
+    margin: auto;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: inherit !important;
+        margin: auto; !important;
+    }
+}

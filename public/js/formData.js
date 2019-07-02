@@ -84,26 +84,26 @@ formData = {
                 dataType: 'json',
                 success: function (data){
                     userId = data.userId;
-                    let formOneData = JSON.parse(localStorage.getItem("userinfo_page_one"));
-                    formOneData["userId"] = userId;
-                    alert(userId);
-                    $.ajax({
-                        type: 'POST',
-                        url: $(formReference).attr('action'),
-                        data: formOneData,
-                        success: function (data){
-                            alert("successfully posted");
-                        }
-                    });
+                    if (userId && userId !== "Error: Incomplete information sent by request !") {
+                        let formOneData = JSON.parse(localStorage.getItem("userinfo_page_one"));
+                        formOneData["userId"] = userId;
+                        $.ajax({
+                            type: 'POST',
+                            url: $(formReference).attr('action'),
+                            data: formOneData,
+                            success: function (data){
+                                console.log('Successfully posted information');
+                            }
+                        });
+                    } else {
+                        alert("Request Failed, Please contact administrator for support !");
+                    }
                 },
                 failure: function () {
-                    alert("request failed !");
+                    alert("Request Failed, Please contact administrator for support !");
                 }
             });
         }
-    },
-    onProceed: function () {
-
     }
 };
 
