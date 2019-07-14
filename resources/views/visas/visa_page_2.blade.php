@@ -21,18 +21,6 @@
     </div>
     <div id="contact" class="section wb">
         <div class="container">
-            <div class="row">
-                <div class="full-width-breadcrumbs margin-top-bottom-10">
-                    <div class="col col-sm-12">
-                        <ul id="breadcrumbs-one">
-                            <li><a href="">Your Trip</a></li>
-                            <li><a href="">Your Details</a></li>
-                            <li><a href="">Your Booking</a></li>
-                            <li><a class="current" href="">Your Quotes</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <div class="journey-page-form form-text-style">
                 <form name="journeyPageOne" method="post" action="{{ route('journey.store') }}">
                     {{ csrf_field() }}

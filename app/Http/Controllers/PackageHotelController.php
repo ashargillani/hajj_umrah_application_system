@@ -18,9 +18,9 @@ class PackageHotelController extends Controller
         $user = \Auth::user();
         $hotels = PackageHotel::all();
         if ($user && $user->hasRole('PackageProvider')) {
-            return view('home_main');
-        } else {
             return view('provider.hotels.index')->with('hotels', $hotels);
+        } else {
+            return view('home_main');
         }
         //return view('provider.hotels.index')->with('hotels', $hotels);
     }

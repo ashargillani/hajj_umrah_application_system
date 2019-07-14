@@ -27,6 +27,7 @@ class MailController extends Controller {
         $mail->body = $request->input('body');
 //        $mail->attachments = $request->input('attachments');
         $mail->save();
+        
         return redirect('/admin/mails')->with('success', 'Email Created');
     }
 

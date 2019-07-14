@@ -108,7 +108,7 @@ class UserController extends Controller
     public function storeProvider(Request $request)
     {
         if ($request->input('password') == $request->input('confirmPassword')) {
-            $providerRole = Role::where('name', 'provider')->first();
+            $providerRole = Role::where('name', 'PackageProvider')->first();
             $user = new User();
             $user->name = $request->input('name');
             $user->email = $request->input('email');

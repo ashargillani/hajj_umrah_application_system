@@ -32,6 +32,12 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="packageDetails" class="col-sm-2 col-form-label">Package Details</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="packageDetails" name="packageDetails" rows="10" value = {{$package->package_details}}></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="totalDays" class="col-sm-2 col-form-label">How long are you planning to stay?</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="totalDays" id="totalDays">

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdatePackagesTable extends Migration
+class UpdateProviderMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdatePackagesTable extends Migration
      */
     public function up()
     {
-        Schema::table('packages', function (Blueprint $table) {
-            $table->dropColumn('flights');
+        Schema::table('provider_message_attachments', function (Blueprint $table) {
+            $table->boolean('seen_by_admin')->default(0);
         });
     }
 
@@ -25,8 +25,8 @@ class UpdatePackagesTable extends Migration
      */
     public function down()
     {
-        Schema::table('packages', function (Blueprint $table) {
-            //
+        Schema::table('provider_message_attachments', function (Blueprint $table) {
+            $table->dropColumn('seen_by_admin');
         });
     }
 }

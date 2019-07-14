@@ -142,5 +142,25 @@ class ProviderController extends Controller
         }
     }
 
+    public function showAboutMe()
+    {
+        $user = \Auth::user();
+        $provider = Provider::where('userId', '=', $user->id)->first();
+        return view('provider.about_me')->with('provider', $provider);
+    }
+
+    public function storeAboutMe(Request $request,Provider $provider)
+    {
+        $provider->provider_details = $request->input('providerDetails');
+        $provider->provider_email = $request->input('providerEmail');
+        $provider->phoneNumber = $request->input('phoneNumber');
+        $provider->save();
+
+        $pictureController = new PictureController();
+        $pictureController->storeProvider($request, $provider);
+
+        return redirect()->route('provider.index')->with('success', 'About Me Updated');
+    }
+
 
 }

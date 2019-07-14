@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdatePackagesTable extends Migration
+class UpdateMessageAttachmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class UpdatePackagesTable extends Migration
      */
     public function up()
     {
-        Schema::table('packages', function (Blueprint $table) {
-            $table->dropColumn('flights');
+        Schema::table('provider_message_attachments', function (Blueprint $table) {
+            $table->dropForeign('provider_message_attachments_message_id_foreign');
+            $table->foreign('message_id')->references('id')->on('provider_messages')->onDelete('cascade');
         });
     }
 
@@ -25,8 +26,6 @@ class UpdatePackagesTable extends Migration
      */
     public function down()
     {
-        Schema::table('packages', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

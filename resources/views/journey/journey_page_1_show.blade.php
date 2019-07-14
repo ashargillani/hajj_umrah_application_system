@@ -84,14 +84,16 @@
                                 </div>
                             </div>
                         </div>
-                        @foreach($journey->children_number_and_state as $key => $value)
-                            <div class="form-group row">
-                                <label for="form_field_childrenState" class="col-sm-5 col-form-label">{{$key}}</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="form_field_childrenState" name="childrenState" value = {{$value}} readonly>
+                        @if($journey->children_travelling)
+                            @foreach($journey->children_number_and_state as $key => $value)
+                                <div class="form-group row">
+                                    <label for="form_field_childrenState" class="col-sm-5 col-form-label">{{$key}}</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="form_field_childrenState" name="childrenState" value = {{$value}} readonly>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @endif
                     </fieldset>
                     <fieldset>
                         <legend>Package Details:</legend>

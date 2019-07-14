@@ -56,6 +56,7 @@ class PackageController extends Controller
         $package = new Package();
         $package->class = $request->input('packageClass');
         $package->totalDays = $request->input('totalDays');
+        $package->package_details = $request->input('packageDetails');
         $package->route = $request->input('route');
         $package->packageStars = $request->input('packageStars');
         $package->type = $request->input('packageType');
@@ -125,6 +126,7 @@ class PackageController extends Controller
     {
         $package->class = $request->input('packageClass');
         $package->totalDays = $request->input('totalDays');
+        $package->package_details = $request->input('packageDetails');
         $package->route = $request->input('route');
         $package->packageStars = $request->input('packageStars');
         $package->type = $request->input('packageType');

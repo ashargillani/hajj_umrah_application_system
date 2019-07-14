@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdatePackagesTable extends Migration
+class UpdatePicturesTable5 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class UpdatePackagesTable extends Migration
      */
     public function up()
     {
-        Schema::table('packages', function (Blueprint $table) {
-            $table->dropColumn('flights');
+        Schema::table('pictures', function (Blueprint $table) {
+            $table->unsignedInteger('provider_id')->nullable();
+            $table->foreign('provider_id')->references('id')->on('providers')->onDelete('cascade');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -25,8 +25,6 @@ class UpdatePackagesTable extends Migration
      */
     public function down()
     {
-        Schema::table('packages', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

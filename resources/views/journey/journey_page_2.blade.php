@@ -26,9 +26,9 @@
                     <div class="col col-sm-12">
                         <ul id="breadcrumbs-one">
                             <li><a href="">Your Trip</a></li>
-                            <li><a href="">Your Details</a></li>
+                            <li><a class="current" href="">Your Details</a></li>
                             <li><a href="">Your Booking</a></li>
-                            <li><a class="current" href="">Your Quotes</a></li>
+                            <li><a href="">Your Quotes</a></li>
                         </ul>
                     </div>
                 </div>

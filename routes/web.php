@@ -23,6 +23,14 @@ Route::get('/journey-page', function () {
     return view('journey.journey_page_1');
 })->name('journey_page');
 
+Route::get('/visa-page-1', function () {
+    return view('visas.visa_page_1');
+})->name('visa-page-1');
+
+Route::get('/visa-page-2', function () {
+    return view('visas.visa_page_1');
+})->name('visa-page-2');
+
 Route::get('/journey-page-2', function () {
     return view('journey.journey_page_2');
 })->name('journey_page_2');
@@ -83,11 +91,22 @@ Route::prefix('provider')->middleware('auth')->group(function () {
     Route::resource('packages', 'PackageController');
     Route::resource('hotels', 'PackageHotelController');
     Route::resource('flights', 'FlightController');
+    Route::resource('message', 'ProviderMessagesController');
     Route::get('dashboard', [
         'as' => 'provider.dashboard',
         'uses' => 'ProviderController@index'
     ]);
 });
+
+Route::get('provider-show-about-me', [
+    'as' => 'provider.show-about-me',
+    'uses' => 'ProviderController@showAboutMe'
+]);
+
+Route::put('provider-store-about-me/{provider}', [
+    'as' => 'provider.store-about-me',
+    'uses' => 'ProviderController@storeAboutMe'
+]);
 
 //////////////////////////////////////////////////////////// Image
 Route::get('create-picture', [

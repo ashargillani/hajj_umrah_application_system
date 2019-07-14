@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\PackageHotel;
 use App\Package;
 use App\Picture;
+use App\Provider;
 use Illuminate\Http\Request;
 
 class PictureController extends Controller
@@ -47,6 +48,32 @@ class PictureController extends Controller
                     $picture = new Picture();
                     $picture->filename = $filename;
                     $picture->hotelId = $hotel->id;
+                    $picture->save();
+                }
+                else
+                {
+                    echo '<div class="alert alert-warning"><strong>Warning!</strong> Wrong Format!!!</div>';
+                }
+            }
+        }
+    }
+
+    public function storeProvider(Request $request, Provider $provider)
+    {
+        if($request->has('filename'))
+        {
+            $allowedfileExtension=['svg','jpg','png','jpeg'];
+            $files = $request->file('filename');
+            foreach($files as $file){
+                $filename = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $check = in_array($extension,$allowedfileExtension);
+                if($check)
+                {
+                    $file->move(public_path('images/providers'), $filename);
+                    $picture = new Picture();
+                    $picture->filename = $filename;
+                    $picture->provider_id = $provider->id;
                     $picture->save();
                 }
                 else

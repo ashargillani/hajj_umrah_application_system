@@ -16,6 +16,9 @@
                                 <div class="slider-content-btn">
                                     <a class="btn11" href="{{ route('journey_page') }}"><span>Book your trip &nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></span><div class="transition"></div></a>
                                 </div>
+                                <div class="slider-content-btn">
+                                    <a class="btn11" href="{{ route('visa-page-1') }}"><span>Apply for Visa &nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></span><div class="transition"></div></a>
+                                </div>
                             </div>
                         </div>
                     </div>
