@@ -77,7 +77,7 @@ class PackageController extends Controller
         $package->transfers = ($request->get('transfers') === 'on');
         $package->ziyaarah = ($request->get('ziyaarah') === 'on');
         $package->hotelId = $request->input('hotelId');
-        $package->providerId = $provider->id;
+        $package->provider = $provider;
         $package->flightId = $request->input('flightId');
 
         $package->save();
@@ -108,8 +108,14 @@ class PackageController extends Controller
     public function edit(Package $package)
     {
         $user = \Auth::user();
+        $flights = Flight::all();
+        $hotels = PackageHotel::all();
         if ($user->hasRole('provider')) {
-            return view('provider.packages.edit')->with('package', $package);
+            return view('provider.packages.edit')->with([
+                'package' => $package,
+                'flights' => $flights,
+                'hotels' => $hotels
+            ]);
         } else {
             $packages = Package::all();
             return view('provider.packages.index')->with('packages', $packages);
@@ -127,15 +133,16 @@ class PackageController extends Controller
     {
         $package->class = $request->input('packageClass');
         $package->totalDays = $request->input('totalDays');
-        $package->package_details = $request->input('packageDetails');
+        $package->type = $request->input('packageType');
         $package->route = $request->input('route');
         $package->packageStars = $request->input('packageStars');
-        $package->type = $request->input('packageType');
+        $package->package_details = $request->input('packageDetails');
         $package->departureDate = $request->input('departureDate');
         $package->arrivalDate = $request->input('arrivalDate');
         $package->makkahDays = $request->input('daysMakkah');
         $package->medinaDays = $request->input('daysMedina');
-        $package->packageBeds = $request->input('packageBeds');
+        $package->roomType = $request->input('roomType');
+        //$package->packageBeds = $request->input('packageBeds');
         $package->price = $request->input('price');
         $package->infantDiscount = $request->input('infantDiscount');
         $package->toddlerDiscount = $request->input('toddlerDiscount');
@@ -147,9 +154,16 @@ class PackageController extends Controller
         $package->transfers = ($request->get('transfers') === 'on');
         $package->ziyaarah = ($request->get('ziyaarah') === 'on');
         $package->hotelId = $request->input('hotelId');
-        $package->providerId = 1;
+        $package->flightId = $request->input('flightId');
+        $user = \Auth::user();
+
+        $provider = $user->provider;
+        $package->providerId = $provider->id;
 
         $package->save();
+
+        $pictureController = new PictureController();
+        $pictureController->storePackage($request, $package);
 
         return redirect('/provider/packages')->with('success', 'Package Updated');
     }
@@ -165,9 +179,11 @@ class PackageController extends Controller
         $user = \Auth::user();
         if($user->hasRole('provider')) {
             $package->delete();
+
             return redirect('/provider/packages')->with('success', 'Package Deleted');
-        }else{
+        } else {
             $packages = Package::all();
+
             return view('provider.packages.index')->with('packages', $packages);
         }
     }

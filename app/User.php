@@ -49,4 +49,8 @@ class User extends \TCG\Voyager\Models\User
     public function getUsersByRoleName($roleName) {
         $this->roles()->where('roles.name', $roleName)->get();
     }
+
+    public function provider() {
+        return $this->hasOne(Provider::class, 'userId');
+    }
 }

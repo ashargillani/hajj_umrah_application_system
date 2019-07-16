@@ -146,7 +146,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="toddlerDiscount" class="col-sm-2 col-form-label">Discount for for Toddler child (in percentage)</label>
+                                <label for="toddlerDiscount" class="col-sm-2 col-form-label">Discount for Toddler child (in percentage)</label>
                                 <div class="col-sm-10">
                                     <div class="input-group">
                                         <div class="input-group-prepend">

@@ -12,10 +12,14 @@ class Package extends Model
     }
     public function flight()
     {
-        return $this->hasOne('App\Flight','flightId');
+        return $this->belongsTo('App\Flight','flightId');
+    }
+    public function hotel()
+    {
+        return $this->belongsTo('App\PackageHotel','hotelId');
     }
     public function provider()
     {
-        return $this->hasOne('App\Provider', 'providerId');
+        return $this->belongsTo('App\Provider', 'providerId');
     }
 }
