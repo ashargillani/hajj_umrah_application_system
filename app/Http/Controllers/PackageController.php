@@ -35,9 +35,9 @@ class PackageController extends Controller
             'hotels'   => $hotels
         ];
         $user = \Auth::user();
-        if($user->hasRole('provider')) {
+        if ($user->hasRole('provider')) {
             return view('provider.packages.create')->with('data', $data);
-        }else{
+        } else {
             $packages = Package::all();
             return view('provider.packages.index')->with('packages', $packages);
         }
@@ -56,15 +56,16 @@ class PackageController extends Controller
         $package = new Package();
         $package->class = $request->input('packageClass');
         $package->totalDays = $request->input('totalDays');
-        $package->package_details = $request->input('packageDetails');
+        $package->type = $request->input('packageType');
         $package->route = $request->input('route');
         $package->packageStars = $request->input('packageStars');
-        $package->type = $request->input('packageType');
+        $package->package_details = $request->input('packageDetails');
         $package->departureDate = $request->input('departureDate');
         $package->arrivalDate = $request->input('arrivalDate');
         $package->makkahDays = $request->input('daysMakkah');
         $package->medinaDays = $request->input('daysMedina');
-        $package->packageBeds = $request->input('packageBeds');
+        $package->roomType = $request->input('roomType');
+        //$package->packageBeds = $request->input('packageBeds');
         $package->price = $request->input('price');
         $package->infantDiscount = $request->input('infantDiscount');
         $package->toddlerDiscount = $request->input('toddlerDiscount');
@@ -107,9 +108,9 @@ class PackageController extends Controller
     public function edit(Package $package)
     {
         $user = \Auth::user();
-        if($user->hasRole('provider')) {
+        if ($user->hasRole('provider')) {
             return view('provider.packages.edit')->with('package', $package);
-        }else{
+        } else {
             $packages = Package::all();
             return view('provider.packages.index')->with('packages', $packages);
         }

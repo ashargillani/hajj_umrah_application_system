@@ -9,7 +9,7 @@
                     <div class="title">
                         @if(Auth::user() && Auth::user()->hasRole('admin'))
                             Admin
-                        @elseif(Auth::user() && Auth::user()->hasRole('PackageProvider'))
+                        @elseif(Auth::user() && Auth::user()->hasRole('provider'))
                             Package Provider
                         @else
                             User

@@ -89,7 +89,7 @@ class UserController extends Controller
     public function indexProvider()
     {
         $users = User::whereHas('roles', function ($query) {
-            $query->where('roles.name', '=', 'PackageProvider');
+            $query->where('roles.name', '=', 'provider');
         })->get();
 
         return view('index_provider')->with('users', $users);
@@ -108,7 +108,7 @@ class UserController extends Controller
     public function storeProvider(Request $request)
     {
         if ($request->input('password') == $request->input('confirmPassword')) {
-            $providerRole = Role::where('name', 'PackageProvider')->first();
+            $providerRole = Role::where('name', 'provider')->first();
             $user = new User();
             $user->name = $request->input('name');
             $user->email = $request->input('email');
