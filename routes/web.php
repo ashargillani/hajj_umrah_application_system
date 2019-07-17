@@ -96,17 +96,16 @@ Route::prefix('provider')->middleware('auth')->group(function () {
         'as' => 'provider.dashboard',
         'uses' => 'ProviderController@index'
     ]);
+
+    Route::get('provider-show-about-me', [
+        'as' => 'provider.show-about-me',
+        'uses' => 'ProviderController@showAboutMe'
+    ]);
+    Route::put('provider-store-about-me/{provider}', [
+        'as' => 'provider.store-about-me',
+        'uses' => 'ProviderController@storeAboutMe'
+    ]);
 });
-
-Route::get('provider-show-about-me', [
-    'as' => 'provider.show-about-me',
-    'uses' => 'ProviderController@showAboutMe'
-]);
-
-Route::put('provider-store-about-me/{provider}', [
-    'as' => 'provider.store-about-me',
-    'uses' => 'ProviderController@storeAboutMe'
-]);
 
 //////////////////////////////////////////////////////////// Image
 Route::get('create-picture', [

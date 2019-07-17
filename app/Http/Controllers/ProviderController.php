@@ -117,6 +117,7 @@ class ProviderController extends Controller
             'user'  => $user,
             'provider'   => $provider
         ];
+        
         return view('provider.provider_update')->with('data', $data);
     }
 
@@ -154,6 +155,8 @@ class ProviderController extends Controller
         $provider->provider_details = $request->input('providerDetails');
         $provider->provider_email = $request->input('providerEmail');
         $provider->phoneNumber = $request->input('phoneNumber');
+        $provider->city = $request->input('providerCity');
+        $provider->address = $request->input('providerAddress');
         $provider->save();
 
         $pictureController = new PictureController();
