@@ -21,13 +21,13 @@
     </div>
     <div id="contact" class="section wb">
         <div class="container">
-            <div class="visa-page-form form-text-style">
-                <form name="visaPageOne" method="post" action="{{ route('visa-page-1') }}">
+            <div class="visa-short-form form-text-style">
+                <form name="visaShortForm" method="post" action="{{ route('visa-page-1') }}">
                     {{ csrf_field() }}
                     <input type="hidden" id="userinfo_page" value="userinfo_page_one" />
                     <fieldset>
                         <div class="col-sm-10 custom-hr"></div>
-                        <legend>Visa Application :</legend>
+                        <legend>Visa Short Application :</legend>
                         <div class="form-group row">
                             <label for="form_field_fullName" class="col-sm-5 col-form-label">Full Name: </label>
                             <div class="col-sm-6">
@@ -47,43 +47,21 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="form_field_dateOfBirth" class="col-sm-5 col-form-label">Date of Birth: </label>
-                            <div class="col-sm-6">
-                                <input type="date" class="form-control" id="form_field_dateOfBirth" name="dateOfBirth" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="form_field_placeOfBirth" class="col-sm-5 col-form-label">Place of Birth: </label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="form_field_placeOfBirth" name="placeOfBirth" placeholder="Place of Birth" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="form_field_previousNationality" class="col-sm-5 col-form-label">Previous Nationality: </label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="form_field_previousNationality" name="previousNationality" placeholder="Previous Nationality" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="form_field_presentNationality" class="col-sm-5 col-form-label">Present Nationality: </label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="form_field_presentNationality" name="presentNationality" placeholder="Present Nationality" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="form_field_sex" class="col-sm-5 col-form-label">Sex:</label>
-                            <div class="col-sm-6">
-                                <select class="form-control" name="sex" id="form_field_sex">
-                                    <option selected disabled>Please choose</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="form_field_profession" class="col-sm-5 col-form-label">Profession: </label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="form_field_profession" name="profession" placeholder="Profession" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="form_field_permanentAddressUK" class="col-sm-5 col-form-label">Permanent Address in UK: </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="form_field_permanentAddressUK" name="permanentAddressUK" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -102,7 +80,34 @@
                                 <input type="text" class="form-control" id="form_field_religion" name="religion" placeholder="Religion" required>
                             </div>
                         </div>
-
+                        <div class="form-group row">
+                            <label for="form_field_nameOfMehram" class="col-sm-5 col-form-label">Name of Mehram: </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="form_field_nameOfMehram" name="nameOfMehram" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="form_field_relationshipWithMehram" class="col-sm-5 col-form-label">Relationship with Mehram: </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="form_field_relationshipWithMehram" name="relationshipWithMehram" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="form_field_dependants" class="col-sm-5 col-form-label">Any Dependants:</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="dependants" id="form_field_dependants">
+                                    <option selected disabled>Please choose</option>
+                                    <option value=1>Yes</option>
+                                    <option value=0>No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="form_field_telephoneNumberUK" class="col-sm-5 col-form-label">Telephone Number in UK: </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="form_field_telephoneNumberUK" name="telephoneNumberUK" required>
+                            </div>
+                        </div>
                     </fieldset>
                     <div class="form-group row">
                         <div class="col-sm-10">
