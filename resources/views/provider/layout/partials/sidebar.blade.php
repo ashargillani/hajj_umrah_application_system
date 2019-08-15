@@ -34,9 +34,6 @@
             <a href="{{ route('provider.index') }}"><i class="fa fa-object-group sidebar-style"></i> &nbsp; Package Providers</a>
         </li>
         <li>
-            <a href="{{ route('provider.show-about-me') }}"><i class="fa fa-object-group sidebar-style"></i> &nbsp; About Me</a>
-        </li>
-        <li>
             <a href="{{ route('packages.index') }}"><i class="fa fa-gift sidebar-style"></i> &nbsp; Packages</a>
         </li>
         <li>
@@ -50,6 +47,12 @@
         </li>
         <li>
             <a href="{{ route('message.index') }}"><i class="fa fa-envelope sidebar-style"></i> &nbsp; Messenger</a>
+        </li>
+        <li>
+            <a href="{{ route('provider.show-about-me') }}"><i class="fa fa-object-group sidebar-style"></i> &nbsp; About Me</a>
+        </li>
+        <li>
+            <a href="{{ route('discount.index') }}"><i class="fa fa-dollar sidebar-style"></i> &nbsp; Discounts</a>
         </li>
         <li>
             <a href="{{ route('voyager.logout') }}"

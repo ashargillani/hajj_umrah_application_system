@@ -87,7 +87,14 @@ Route::prefix('provider')->middleware('auth')->group(function () {
         'as' => 'provider.profile_update',
         'uses' => 'ProviderController@updateProvider'
     ]);
-
+    Route::get('discount', [
+        'as' => 'discount.index',
+        'uses' => 'DiscountController@index'
+    ]);
+    Route::post('discount/{discount?}', [
+        'as' => 'discount.update_discount',
+        'uses' => 'DiscountController@update'
+    ]);
     Route::resource('packages', 'PackageController');
     Route::resource('hotels', 'PackageHotelController');
     Route::resource('flights', 'FlightController');
@@ -96,7 +103,6 @@ Route::prefix('provider')->middleware('auth')->group(function () {
         'as' => 'provider.dashboard',
         'uses' => 'ProviderController@index'
     ]);
-
     Route::get('provider-show-about-me', [
         'as' => 'provider.show-about-me',
         'uses' => 'ProviderController@showAboutMe'

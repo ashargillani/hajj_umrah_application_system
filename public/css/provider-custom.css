@@ -493,7 +493,15 @@ div.page-content {
 .starrating > input:hover ~ label
 { color: #ffca08 ;  } /* Set yellow color when star hover */
 
+.modal {
+    width: 90% !important;
+    margin: 0 auto !important;
+    top: 10% !important;
+}
 
+.modal-lg .modal-dialog {
+    max-width: initial !important;
+}
 
 @media (min-width: 768px) {
     .navbar-header {
@@ -505,5 +513,11 @@ div.page-content {
     .navbar-right {
         float: right!important;
         margin-right: -15px;
+    }
+}
+
+@media (min-width: 992px) {
+    .modal-lg {
+        max-width: 70%;
     }
 }

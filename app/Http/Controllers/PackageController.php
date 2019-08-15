@@ -17,7 +17,16 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $packages = Package::all();
+        $user = \Auth::user();
+        $packages = null;
+
+        if ($user->hasRole('provider')) {
+            $provider = Provider::where('userId', '=', $user->id)->first();
+            $packages = Package::where('providerId', $provider->id)->get();
+        } else {
+            $packages = Package::all();
+        }
+
         return view('provider.packages.index')->with('packages', $packages);
     }
 
@@ -39,6 +48,7 @@ class PackageController extends Controller
             return view('provider.packages.create')->with('data', $data);
         } else {
             $packages = Package::all();
+
             return view('provider.packages.index')->with('packages', $packages);
         }
     }
@@ -118,6 +128,7 @@ class PackageController extends Controller
             ]);
         } else {
             $packages = Package::all();
+
             return view('provider.packages.index')->with('packages', $packages);
         }
     }
