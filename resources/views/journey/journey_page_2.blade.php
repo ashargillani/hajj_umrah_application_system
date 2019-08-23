@@ -277,7 +277,7 @@
                             <div class="col-sm-6">
                                 <!-- Button trigger modal -->
                                 <button type="button" id="additionalPassengerDetailsModal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                    <i class="fa fa-plus"> </i>Add Details
+                                    <i class="fa fa-plus"> </i> Add Details
                                 </button>
                             </div>
                         </div>
@@ -301,86 +301,100 @@
                             </button>
                         </div>
                         <div class="modal-body" id="additional_passenger">
-                            <form name="journeyPageTwo" method="post">
+                            <form name="additionalPassengerForm" id="additionalPassengerForm" method="post">
                                 <fieldset>
-                                    <div class="col-sm-10 custom-hr"></div>
-                                    <legend class="additional-passenger-legend">Additional Passenger Details:</legend>
-                                    <div class="form-group row">
-                                        <label for="additionalPassengerTitle" class="col-sm-5 col-form-label">Your title:</label>
-                                        <div class="col-sm-6">
-                                            <select class="form-control" name="additionalPassengerTitle" id="additionalPassengerTitle">
-                                                <option selected disabled>Please choose</option>
-                                                <option>Mr.</option>
-                                                <option>Mrs.</option>
-                                                <option>Ms.</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="additionalPassengerFullName" class="col-sm-5 col-form-label">Full Name: </label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="additionalPassengerFullName" name="additionalPassengerFullName" placeholder="Full Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="additionalPassengerDateOfBirth" class="col-sm-5 col-form-label">Date of Birth: </label>
-                                        <div class="col-sm-6">
-                                            <input type="date" class="form-control" id="additionalPassengerDateOfBirth" name="additionalPassengerDateOfBirth" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="form_field_address" class="col-sm-5 col-form-label">Address: </label>
-                                        <div class="col-sm-6">
-                                            <textarea class="form-control" id="form_field_address" name="address" placeholder="Address"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="additionalPassengerPassportType" class="col-sm-5 col-form-label">What type of passport do you have ?</label>
-                                        <div class="col-sm-6">
-                                            <select class="form-control" name="additionalPassengerPassportType" id="additionalPassengerPassportType" required>
-                                                <option selected disabled>Passport Type: </option>
-                                                <option>A valid british UK passport ?</option>
-                                                <option>Other countries</option>
-                                                <option>Please state</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-5">Is the passport valid ? (Please check the box)</div>
-                                        <div class="col-sm-6">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input custom-checkbox" type="checkbox" id="additionalPassengerValidPassport" name="additionalPassengerValidPassport">
-                                                <label class="form-check-label" for="additionalPassengerValidPassport">
-                                                    Yes
-                                                </label>
+                                    <div class="additional-passenger-template">
+                                        <legend class="additional-passenger-legend">Additional Passenger Details:</legend>
+                                        <hr />
+                                        <div class="form-group row">
+                                            <label for="additionalPassengerRelation" class="col-sm-6 col-form-label">Relation with passenger: </label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="additionalPassengerRelation" name="additionalPassengerRelation[]" placeholder="Brother.." required>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="additionalPassengerHealthConditions" class="col-sm-5 col-form-label">Suffer from any illness ? Any Health Conditions: (If yes, please state)</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="additionalPassengerHealthConditions" name="additionalPassengerHealthConditions" placeholder="Health Conditions">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-5">The passenger will need a health certificate ! (Please check the box)</div>
-                                        <div class="col-sm-6">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input custom-checkbox" type="checkbox" id="additionalPassengerHealthCertificateRequired" name="additionalPassengerHealthCertificateRequired">
-                                                <label class="form-check-label" for="additionalPassengerHealthCertificateRequired">
-                                                    Yes
-                                                </label>
+                                        <div class="form-group row">
+                                            <label for="additionalPassengerTitle" class="col-sm-6 col-form-label">Title:</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" name="additionalPassengerTitle[]" id="additionalPassengerTitle">
+                                                    <option selected disabled>Please choose</option>
+                                                    <option>Mr.</option>
+                                                    <option>Mrs.</option>
+                                                    <option>Ms.</option>
+                                                </select>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-5">If the passenger have been to Saudi in the last 3 years there may be an additional fee the Saudi government charge as per regulation, the travel advisor can guide you further if this is the case!  ! (Please check the box)</div>
-                                        <div class="col-sm-6">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input custom-checkbox" type="checkbox" id="additionalPassengerBeenToSaudia" name="additionalPassengerBeenToSaudia">
-                                                <label class="form-check-label" for="additionalPassengerBeenToSaudia">
-                                                    Yes
-                                                </label>
+                                        <div class="form-group row">
+                                            <label for="additionalPassengerFullName" class="col-sm-6 col-form-label">Full Name: </label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="additionalPassengerFullName" name="additionalPassengerFullName[]" placeholder="Full Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="additionalPassengerDateOfBirth" class="col-sm-6 col-form-label">Date of Birth: </label>
+                                            <div class="col-sm-6">
+                                                <input type="date" class="form-control" id="additionalPassengerDateOfBirth" name="additionalPassengerDateOfBirth[]" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="form_field_address" class="col-sm-6 col-form-label">Address: </label>
+                                            <div class="col-sm-6">
+                                                <textarea class="form-control" id="form_field_address" name="address[]" placeholder="Address"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="additionalPassengerPostCode" class="col-sm-6 col-form-label">Post Code: </label>
+                                            <div class="col-sm-6">
+                                                <input type="number" class="form-control" id="additionalPassengerPostCode" name="additionalPassengerPostCode[]" placeholder="22030" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="additionalPassengerPassportType" class="col-sm-6 col-form-label">What type of passport do you have ?</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" name="additionalPassengerPassportType[]" id="additionalPassengerPassportType" required>
+                                                    <option selected disabled>Passport Type: </option>
+                                                    <option>A valid british UK passport ?</option>
+                                                    <option>Other countries</option>
+                                                    <option>Please state</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">Is the passport valid ? (Please check the box)</div>
+                                            <div class="col-sm-6">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input custom-checkbox" type="checkbox" id="additionalPassengerValidPassport" name="additionalPassengerValidPassport[]">
+                                                    <label class="form-check-label" for="additionalPassengerValidPassport">
+                                                        Yes
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="additionalPassengerHealthConditions" class="col-sm-6 col-form-label">Suffer from any illness ? Any Health Conditions: (If yes, please state)</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="additionalPassengerHealthConditions" name="additionalPassengerHealthConditions[]" placeholder="Health Conditions">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">The passenger will need a health certificate ! (Please check the box)</div>
+                                            <div class="col-sm-6">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input custom-checkbox" type="checkbox" id="additionalPassengerHealthCertificateRequired" name="additionalPassengerHealthCertificateRequired[]">
+                                                    <label class="form-check-label" for="additionalPassengerHealthCertificateRequired">
+                                                        Yes
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">If the passenger have been to Saudi in the last 3 years there may be an additional fee the Saudi government charge as per regulation, the travel advisor can guide you further if this is the case!  ! (Please check the box)</div>
+                                            <div class="col-sm-6">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input custom-checkbox" type="checkbox" id="additionalPassengerBeenToSaudia" name="additionalPassengerBeenToSaudia[]">
+                                                    <label class="form-check-label" for="additionalPassengerBeenToSaudia">
+                                                        Yes
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -401,6 +415,7 @@
     <script src="{{ asset('js/formData.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            // Get Form One Data
             let formOneData = JSON.parse(localStorage.getItem("userinfo_page_one"));
             $("#form_field_confirm_password").on("blur", function () {
                 let passwordFieldValue = $("#form_field_password").val();
@@ -412,6 +427,7 @@
                 }
             });
 
+            // Force the user to add additional passenger details
             $("input[type=radio][name=additionalPassengersTravelling]").change(function () {
                 let additionalPassengerModalButton = $('#additionalPassengerDetailsModal');
                 if($(this).val() === "false") {
@@ -425,6 +441,32 @@
                     additionalPassengerModalButton.prop('disabled', false);
                 }
             });
+
+            // Create the forms fields for the additional passenger
+            var $additionalPassengerForm = $('form[name=additionalPassengerForm]');
+            var $additionalPassengerTemplate = $('.additional-passenger-template');
+            $additionalPassengerTemplate.hide();
+            if (formOneData.noOfAdults > 1) {
+                for(let i = 1; i < formOneData.noOfAdults; i++) {
+                    let $additionalPassengerTemplateCopy = $additionalPassengerTemplate.clone();
+                    let legend = $additionalPassengerTemplateCopy.find('.additional-passenger-legend');
+                    legend.text('Additional Passenger ' + i + ' Details');
+                    $additionalPassengerTemplateCopy.show();
+                    $additionalPassengerForm.append($additionalPassengerTemplateCopy);
+                }
+            }
+
+            if (formOneData.noOfChildren && formOneData.noOfChildren > 0) {
+                for(let i = 0; i < formOneData.noOfChildren; i++) {
+                    let $childrenTemplateCopy = $additionalPassengerTemplate.clone();
+                    let legend = $childrenTemplateCopy.find('.additional-passenger-legend');
+                    legend.text('Children ' + (i+1) + ' Details');
+                    $childrenTemplateCopy.show();
+                    $additionalPassengerForm.append($childrenTemplateCopy);
+                }
+            }
+
+
 
             $('#myModal').on('shown.bs.modal', function () {
                 $('#myInput').trigger('focus')

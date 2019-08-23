@@ -38,7 +38,6 @@ formData = {
         }
     },
     setFieldValue: function(key, value) {
-        console.log("#form_field_" + key);
         $("#form_field_"+key).val(value);
     },
     updateValuesInLocalStorage: function () {

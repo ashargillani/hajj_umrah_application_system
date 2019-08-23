@@ -162,7 +162,7 @@ class ProviderController extends Controller
         $pictureController = new PictureController();
         $pictureController->storeProvider($request, $provider);
 
-        return redirect()->route('provider.index')->with('success', 'About Me Updated');
+        return redirect()->route('provider.show-about-me')->with('success', 'About Me Updated');
     }
 
 
