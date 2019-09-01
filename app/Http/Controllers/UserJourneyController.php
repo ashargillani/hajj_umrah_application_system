@@ -40,6 +40,13 @@ class UserJourneyController extends Controller
     public function store(Request $request)
     {
         $userJourney = new UserJourney();
+        $userId = $request->input('userId');
+        if (isset($userId) && trim($userId) !== '') {
+            if (UserJourney::where('user_id')->count() > 0) {
+                $userJourney = UserJourney::where('user_id')->first();
+                dd('comes here');
+            }
+        }
         $userJourney->no_of_people_bool = filter_var($request->input('noOfPeopleBool'), FILTER_VALIDATE_BOOLEAN);
         $userJourney->no_of_people = $request->input('noOfPeople');
         $userJourney->no_of_adults = $request->input('noOfAdults');
@@ -68,7 +75,11 @@ class UserJourneyController extends Controller
 
         $userJourney->save();
 
-        return redirect()->route('journey_page_2');
+        $packages = PackageController::suggestedPackages($request);
+
+        return redirect()->route('journey_page_3')->with([
+            'packages' => $packages
+        ]);
     }
 
 
@@ -171,7 +182,6 @@ class UserJourneyController extends Controller
             } else {
                 return 'Error: Incomplete information sent by request !';
             }
-
         }
 
         return ['userId' => $user->id];

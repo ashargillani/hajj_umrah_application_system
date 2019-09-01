@@ -22,4 +22,8 @@ class Package extends Model
     {
         return $this->belongsTo('App\Provider', 'providerId');
     }
+
+    public function discount() {
+        return $this->hasOne('App\Discount');
+    }
 }

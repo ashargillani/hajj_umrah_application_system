@@ -17,7 +17,16 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $packages = Package::all();
+        $user = \Auth::user();
+        $packages = null;
+
+        if ($user->hasRole('provider')) {
+            $provider = Provider::where('userId', '=', $user->id)->first();
+            $packages = Package::where('providerId', $provider->id)->get();
+        } else {
+            $packages = Package::all();
+        }
+
         return view('provider.packages.index')->with('packages', $packages);
     }
 
@@ -39,6 +48,7 @@ class PackageController extends Controller
             return view('provider.packages.create')->with('data', $data);
         } else {
             $packages = Package::all();
+
             return view('provider.packages.index')->with('packages', $packages);
         }
     }
@@ -118,6 +128,7 @@ class PackageController extends Controller
             ]);
         } else {
             $packages = Package::all();
+
             return view('provider.packages.index')->with('packages', $packages);
         }
     }
@@ -188,7 +199,8 @@ class PackageController extends Controller
         }
     }
 
-    public function suggestedPackages(Request $request)
+
+    public static function suggestedPackages(Request $request)
     {
         $package = Package::where('totalDays',$request->input('total_days'));
         if (!empty($package)) {
@@ -197,21 +209,24 @@ class PackageController extends Controller
                 $package2 = $package1->where('class', $request->input('packageClass'));
                 if (!empty($package2)) {
                     $package3 = $package2->where('type', $request->input('packageType'));
-                    if(!empty($package3)){
+                    if (!empty($package3)) {
                         $package = $package3;
+
                         return $package->get();
-                    }else{
+                    } else {
                         $package = $package2;
+
                         return $package->get();
                     }
-                }else{
+                } else {
                     $package = $package1;
+
                     return $package->get();
                 }
-            }else{
+            } else {
                 return $package->get();
             }
-        }else{
+        } else {
             return $package->get();
         }
     }

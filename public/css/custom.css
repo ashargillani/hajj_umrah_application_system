@@ -68,6 +68,9 @@ div.custom-hr {
     margin: auto;
 }
 
+.modal-lg .modal-dialog {
+    max-width: available !important;
+}
 .unread-message {
     background-color: rgba(0,0,0,.05);
 }
