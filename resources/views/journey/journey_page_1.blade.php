@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="journey-page-form form-text-style">
-                <form name="journeyPageOne" method="post" action="{{ route('journey.store') }}">
+                <form name="journeyPageOne" method="post" action="">
                     {{ csrf_field() }}
                     <input type="hidden" id="userinfo_page" value="userinfo_page_one" />
                     <fieldset>
@@ -141,13 +141,13 @@
                             <div class="col-sm-5">Where would you like to go first ? Tick the checkbox</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="radio" value="Makkah/Medina" name="route" id="form_field_route" required/>
+                                    <input class="form-check-input custom-checkbox" type="radio" value="Makkah" name="route" id="form_field_route" required/>
                                     <label class="form-check-label" for="form_field_route">
                                         Makkah
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="radio" value="Medina/Makkah" name="route" id="form_field_route">
+                                    <input class="form-check-input custom-checkbox" type="radio" value="Medina" name="route" id="form_field_route">
                                     <label class="form-check-label" for="form_field_route">
                                         Medina
                                     </label>
@@ -209,8 +209,8 @@
                             <div class="col-sm-6">
                                 <select class="form-control" name="wheelchairAccessReason" id="form_field_wheelchairAccessReason" required>
                                     <option selected disabled>Please choose</option>
-                                    <option value="Yes for me">Yes, it's for me</option>
-                                    <option value="Yes for someone">Yes, it's for someone else</option>
+                                    <option value="YesForMe">Yes, it's for me</option>
+                                    <option value="YesForSomeone">Yes, it's for someone else</option>
                                     <option value="No">No, thankyou</option>
                                 </select>
                             </div>

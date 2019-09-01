@@ -75,6 +75,7 @@ formData = {
         });
         if (formName === "journeyPageOne") {
             window.location.href= '/journey-page-2';
+
         } else if (formName === "journeyPageTwo") {
             $.ajax({
                 type: 'POST',

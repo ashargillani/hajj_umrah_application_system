@@ -30,9 +30,11 @@
         <li>
             <a href="{{ route('provider.dashboard') }}"><i class="fa fa-dashboard sidebar-style"></i> &nbsp; Dashboard</a>
         </li>
-        <li>
-            <a href="{{ route('provider.index') }}"><i class="fa fa-object-group sidebar-style"></i> &nbsp; Package Providers</a>
-        </li>
+        @if(Auth::user() && Auth::user()->hasRole('admin'))
+            <li>
+                <a href="{{ route('provider.index') }}"><i class="fa fa-object-group sidebar-style"></i> &nbsp; Package Providers</a>
+            </li>
+        @endif
         <li>
             <a href="{{ route('packages.index') }}"><i class="fa fa-gift sidebar-style"></i> &nbsp; Packages</a>
         </li>

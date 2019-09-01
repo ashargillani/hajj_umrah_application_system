@@ -35,16 +35,17 @@ Route::get('/journey-page-2', function () {
     return view('journey.journey_page_2');
 })->name('journey_page_2');
 
+Route::get('/journey-page-3', function () {
+    return view('journey.journey_page_3')->with([
+        'packages' => Session::get('packages')
+    ]);
+})->name('journey_page_3');
+
 Route::get('/page-test', function () {
     return view('provider.layout.provider-main');
 });
 
 Route::prefix('admin')->middleware('auth')->group(function() {
-    Route::get('index-provider', [
-        'as' => 'provider.index',
-        'uses' => 'UserController@indexProvider'
-    ]);
-
     Route::get('create-provider', [
         'as' => 'provider.create',
         'uses' => 'UserController@createProvider'
@@ -77,6 +78,10 @@ Route::prefix('admin')->middleware('auth')->group(function() {
 });
 
 Route::prefix('provider')->middleware('auth')->group(function () {
+    Route::get('index-provider', [
+        'as' => 'provider.index',
+        'uses' => 'UserController@indexProvider'
+    ]);
 
     Route::get('profile-edit', [
         'as' => 'provider.profile_edit',

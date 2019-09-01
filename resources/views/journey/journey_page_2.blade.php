@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="form_field_confirm_password" class="col-sm-5 col-form-label">Password : </label>
+                            <label for="form_field_confirm_password" class="col-sm-5 col-form-label">Retype Password : </label>
                             <div class="col-sm-6">
                                 <input type="password" class="form-control" id="form_field_confirm_password" name="password" required>
                                 <label class="invalid-password" style="display: none;">* The passwords doesn't match</label>
@@ -109,13 +109,13 @@
                             <div class="col-sm-5">Would you like to travel in group from your city ? Yes or NO</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_travellingInGroup" name="travellingInGroup" required>
+                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_travellingInGroup" name="travellingInGroup" value="True" required>
                                     <label class="form-check-label" for="form_field_travellingInGroup">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_travellingInGroup" name="travellingInGroup">
+                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_travellingInGroup" name="travellingInGroup" value="False">
                                     <label class="form-check-label" for="form_field_travellingInGroup">
                                         No
                                     </label>
@@ -169,13 +169,13 @@
                             <div class="col-sm-5">Do you have a Valid Passport for atleast 6 months after the date of travel ? Please mark Yes or No ( If no, please apply for a new passport, you can still reserve a place by making payment )</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_passportValidity" name="passportValidity">
+                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_passportValidity" name="passportValidity">
                                     <label class="form-check-label" for="form_field_passportValidity">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_passportValidity" name="passportValidity">
+                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_passportValidity" name="passportValidity">
                                     <label class="form-check-label" for="form_field_passportValidity">
                                         No
                                     </label>
@@ -209,13 +209,13 @@
                             <div class="col-sm-5">Do you require any assistance whilst on your trip so we can advice the agent ?</div>
                             <div class="col-sm-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_agentAssistance" name="agentAssistance">
+                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_agentAssistance" name="agentAssistance">
                                     <label class="form-check-label" for="form_field_agentAssistance">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input custom-checkbox" type="checkbox" id="form_field_agentAssistance" name="agentAssistance">
+                                    <input class="form-check-input custom-checkbox" type="radio" id="form_field_agentAssistance" name="agentAssistance">
                                     <label class="form-check-label" for="form_field_agentAssistance">
                                         No
                                     </label>
@@ -276,7 +276,7 @@
                             <div class="col-sm-5">Add Additional Passenger's Details</div>
                             <div class="col-sm-6">
                                 <!-- Button trigger modal -->
-                                <button type="button" id="additionalPassengerDetailsModal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                <button type="button" id="additionalPassengerDetailsModal" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
                                     <i class="fa fa-plus"> </i> Add Details
                                 </button>
                             </div>
@@ -284,7 +284,7 @@
                     </fieldset>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary pull-right">Proceed <i class="fa-arrow-right"></i></button>
+                            <button type="submit" class="btn btn-primary pull-right">Take Me To the Best Package <i class="fa fa-arrow-right"></i></button>
                         </div>
                     </div>
                 </form>
@@ -362,7 +362,7 @@
                                             <div class="col-sm-6">Is the passport valid ? (Please check the box)</div>
                                             <div class="col-sm-6">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input custom-checkbox" type="checkbox" name="additionalPassengerValidPassport[]">
+                                                    <input class="form-check-input custom-checkbox" type="checkbox" name="additionalPassengerValidPassport[]" value="true">
                                                     <label class="form-check-label">
                                                         Yes
                                                     </label>
@@ -379,7 +379,7 @@
                                             <div class="col-sm-6">The passenger will need a health certificate ! (Please check the box)</div>
                                             <div class="col-sm-6">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input custom-checkbox" type="checkbox" name="additionalPassengerHealthCertificateRequired[]">
+                                                    <input class="form-check-input custom-checkbox" type="checkbox" name="additionalPassengerHealthCertificateRequired[]" value="true">
                                                     <label class="form-check-label" for="additionalPassengerHealthCertificateRequired">
                                                         Yes
                                                     </label>
@@ -390,7 +390,7 @@
                                             <div class="col-sm-6">If the passenger have been to Saudi in the last 3 years there may be an additional fee the Saudi government charge as per regulation, the travel advisor can guide you further if this is the case!  ! (Please check the box)</div>
                                             <div class="col-sm-6">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input custom-checkbox" type="checkbox" name="additionalPassengerBeenToSaudia[]">
+                                                    <input class="form-check-input custom-checkbox" type="checkbox" name="additionalPassengerBeenToSaudia[]" value="true">
                                                     <label class="form-check-label" for="additionalPassengerBeenToSaudia">
                                                         Yes
                                                     </label>
@@ -418,7 +418,8 @@
         $(document).ready(function () {
             // Get Form One Data
             let formOneData = JSON.parse(localStorage.getItem("userinfo_page_one"));
-            let formtwoData = JSON.parse(localStorage.getItem("userinfo_page_two"));
+            // Get Journey Page Two Data
+            let formTwoData = JSON.parse(localStorage.getItem("userinfo_page_two"));
             $("#form_field_confirm_password").on("blur", function () {
                 let passwordFieldValue = $("#form_field_password").val();
                 let confirmPasswordFieldValue = $(this).val();
@@ -484,10 +485,11 @@
                 storeFormFieldsInLocalStorage();
             });
 
+            // When the form is submitted save the changes to localstorage
             function storeFormFieldsInLocalStorage() {
                 let uniqueFieldsName = [];
                 let arrayContainingAllFields = {};
-                $('.additional-passenger-template input[name^="additionalPassenger"]').each(function () {
+                $('.additional-passenger-template [name^="additionalPassenger"]').each(function () {
                     let fieldName = $(this).attr('name');
                     if (uniqueFieldsName.indexOf(fieldName) > -1) {
                         if (this.type == 'checkbox') {
@@ -501,10 +503,26 @@
                         arrayContainingAllFields[fieldName].push($(this).val());
                     }
                 });
-                formtwoData['additionalPassengersDetails'] = arrayContainingAllFields;
-                localStorage.setItem("userinfo_page_two", JSON.stringify(formtwoData));
-                formtwoData = JSON.parse(localStorage.getItem("userinfo_page_two"));
+                formTwoData['additionalPassengersDetails'] = arrayContainingAllFields;
+                localStorage.setItem("userinfo_page_two", JSON.stringify(formTwoData));
+                formTwoData = JSON.parse(localStorage.getItem("userinfo_page_two"));
                 $('#exampleModal').modal('hide');
+            }
+
+            // Prefill the values for additional passenger form if already stored in local storage
+            if (formTwoData.additionalPassengersDetails) {
+                Object.keys(formTwoData.additionalPassengersDetails).forEach(function (key, index) {
+                    let fieldValues = formTwoData.additionalPassengersDetails[key];
+                    fieldValues.forEach(function (item, indexNo) {
+                        let elementIndex = indexNo + 1;
+                        let inputType = $('form[name=additionalPassengerForm] [name="' + key + '"]:nth-child('+ elementIndex +')').attr('type');
+                        if (inputType === 'checkbox' || inputType === 'radio') {
+                            $('form[name=additionalPassengerForm] [name="' + key + '"][value="' + item + '"]:nth-child('+ elementIndex +')').prop("checked", true);
+                        } else {
+                            $('form[name=additionalPassengerForm] [name="' + key + '"]:nth-child('+ elementIndex +')').val(item);
+                        }
+                    });
+                });
             }
 
             $('#myModal').on('shown.bs.modal', function () {
