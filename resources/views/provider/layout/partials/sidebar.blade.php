@@ -50,12 +50,14 @@
         <li>
             <a href="{{ route('message.index') }}"><i class="fa fa-envelope sidebar-style"></i> &nbsp; Messenger</a>
         </li>
+        @if(Auth::user() && Auth::user()->hasRole('provider'))
         <li>
             <a href="{{ route('provider.show-about-me') }}"><i class="fa fa-object-group sidebar-style"></i> &nbsp; About Me</a>
         </li>
         <li>
             <a href="{{ route('discount.index') }}"><i class="fa fa-dollar sidebar-style"></i> &nbsp; Discounts</a>
         </li>
+        @endif
         <li>
             <a href="{{ route('voyager.logout') }}"
                onclick="event.preventDefault();

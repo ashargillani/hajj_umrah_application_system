@@ -93,6 +93,7 @@ formData = {
                             data: formOneData,
                             success: function (data){
                                 console.log('Successfully posted information');
+                                //window.location.href= '/journey-page-3';
                             }
                         });
                     } else {

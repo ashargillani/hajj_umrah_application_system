@@ -35,11 +35,10 @@ Route::get('/journey-page-2', function () {
     return view('journey.journey_page_2');
 })->name('journey_page_2');
 
-Route::get('/journey-page-3', function () {
-    return view('journey.journey_page_3')->with([
-        'packages' => Session::get('packages')
-    ]);
-})->name('journey_page_3');
+Route::get('/journey-page-3', [
+    'as' => 'show.packages',
+    'uses' => 'UserJourneyController@showSuggestedPackages'
+])->name('journey_page_3');
 
 Route::get('/page-test', function () {
     return view('provider.layout.provider-main');

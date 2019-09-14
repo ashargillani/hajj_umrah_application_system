@@ -25,10 +25,10 @@
                 <div class="full-width-breadcrumbs margin-top-bottom-10">
                     <div class="col col-sm-12">
                         <ul id="breadcrumbs-one">
-                            <li><a href="">Your Trip</a></li>
+                            <li><a class="current" href="">Your Trip</a></li>
                             <li><a href="">Your Details</a></li>
                             <li><a href="">Your Booking</a></li>
-                            <li><a class="current" href="">Your Quotes</a></li>
+                            <li><a href="">Your Quotes</a></li>
                         </ul>
                     </div>
                 </div>
@@ -356,7 +356,6 @@
             var noOfChildren = "";
             var numberOfChildren = $(".select-no-of-children");
             var childrenNoAndStateDiv = $(".child-no-and-state");
-
             var childrenTravelling = $("input[type=radio][name=childrenTravelling]");
             var childrenTravellingChecked = $("input[type=radio][name=childrenTravelling]:checked");
             var formFields = formData.getFormFields();

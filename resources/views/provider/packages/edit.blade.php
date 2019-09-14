@@ -57,7 +57,7 @@
                                 <label for="route" class="col-sm-2 col-form-label">What is your route?</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="route" id="route">
-                                        <option value="Makkah>Hajj>Medina {{ ($package->route == 'Makkah>Hajj>Medina') ? 'selected' : '' }}">Makkah&gt;Hajj&gt;Medina</option>
+                                        <option value="Makkah>Hajj>Medina" {{ ($package->route == 'Makkah>Hajj>Medina') ? 'selected' : '' }}>Makkah&gt;Hajj&gt;Medina</option>
                                         <option value="Makkah>Hajj>Jeddah" {{ ($package->route == 'Makkah>Hajj>Jeddah') ? 'selected' : '' }}>Makkah&gt;Hajj&gt;Jeddah</option>
                                         <option value="Medina>Makkah>Hajj>Makkah" {{ ($package->route == 'Medina>Makkah>Hajj>Makkah') ? 'selected' : '' }}>Medina&gt;Makkah&gt;Hajj&gt;Makkah</option>
                                         <option value="Medina>Azeezia>Hajj>Azeezia" {{ ($package->route == 'Medina>Azeezia>Hajj>Azeezia') ? 'selected' : '' }}>Medina&gt;Azeezia&gt;Hajj&gt;Azeezia</option>

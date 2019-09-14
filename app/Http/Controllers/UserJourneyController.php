@@ -42,9 +42,8 @@ class UserJourneyController extends Controller
         $userJourney = new UserJourney();
         $userId = $request->input('userId');
         if (isset($userId) && trim($userId) !== '') {
-            if (UserJourney::where('user_id')->count() > 0) {
-                $userJourney = UserJourney::where('user_id')->first();
-                dd('comes here');
+            if (UserJourney::where('user_id', $userId)->count() > 0) {
+                $userJourney = UserJourney::where('user_id', $userId)->first();
             }
         }
         $userJourney->no_of_people_bool = filter_var($request->input('noOfPeopleBool'), FILTER_VALIDATE_BOOLEAN);
@@ -75,15 +74,13 @@ class UserJourneyController extends Controller
 
         $userJourney->save();
 
-        $packages = PackageController::suggestedPackages($request);
+        $response['success'] = true;
+        $response['result'] = $userJourney->id;
+        $suggestedPackages = PackageController::suggestedPackages($request);
+        \session(['packages' => $suggestedPackages]);
 
-        return redirect()->route('journey_page_3')->with([
-            'packages' => $packages
-        ]);
+        return $response;
     }
-
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -185,5 +182,15 @@ class UserJourneyController extends Controller
         }
 
         return ['userId' => $user->id];
+    }
+
+    public function showSuggestedPackages(Request $request) {
+        if ($request->session()->exists('packages')) {
+            return view('journey.journey_page_3', [
+               'packages' => session('packages')
+            ]);
+        } else {
+            return redirect()->route('journey_page_2');
+        }
     }
 }

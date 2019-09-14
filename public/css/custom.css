@@ -71,6 +71,41 @@ div.custom-hr {
 .modal-lg .modal-dialog {
     max-width: available !important;
 }
+
+.content-container {
+    margin: 15px 0;
+    padding: 5px;
+}
+
+.table-hover tbody tr.content:hover {
+    background-color: transparent;
+}
+
+.table-hover tbody tr.content textarea, .table-hover tbody tr.collapse textarea{
+    resize: none;
+}
+
+.color-green {
+     color: #5cb85c;
+}
+
+.included-in-package {
+    font-size: large;
+    letter-spacing: 1.5px;
+    font-style: oblique;
+    margin: 5px;
+}
+
+.included-in-package i.fa, .included-in-package i.fa-lg{
+    position: relative;
+    top: 1px;
+    font-size: 1.6em;
+}
+
+.color-red {
+    color: #d9534f;
+}
+
 .unread-message {
     background-color: rgba(0,0,0,.05);
 }

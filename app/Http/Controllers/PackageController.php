@@ -202,9 +202,9 @@ class PackageController extends Controller
 
     public static function suggestedPackages(Request $request)
     {
-        $package = Package::where('totalDays',$request->input('total_days'));
+        $package = Package::where('totalDays', '<=', $request->input('total_days') + 8)->where('totalDays', '>=', $request->input('total_days') - 8);
         if (!empty($package)) {
-            $package1 = $package->where('price', '>=', $request->input('preferredBudget') + 200)->where('price', '<=', $request->input('preferredBudget') - 200);
+            $package1 = $package->where('price', '<=', $request->input('preferredBudget') + 500)->where('price', '>=', $request->input('preferredBudget') - 500);
             if (!empty($package1)) {
                 $package2 = $package1->where('class', $request->input('packageClass'));
                 if (!empty($package2)) {
