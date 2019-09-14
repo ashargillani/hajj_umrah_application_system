@@ -37,17 +37,18 @@ class VisaShortFormController extends Controller
     public function store(Request $request)
     {
         $visaShortForm = new VisaShortForm();
-        $visaShortForm->no_of_people_travelling = $request->input('noOfPeopleTravelling');
-        $visaShortForm->mehram = $request->input('mehram');
+        $visaShortForm->full_name = $request->input('fullName');
         $visaShortForm->family_name = $request->input('familyName');
         $visaShortForm->mother_name = $request->input('motherName');
         $visaShortForm->previous_nationality = $request->input('previousNationality');
-        $visaShortForm->present_nationality = $request->input('presentNationality');
         $visaShortForm->profession = $request->input('profession');
+        $visaShortForm->permanent_address_UK = $request->input('permanentAddressUK');
         $visaShortForm->marital_status = $request->input('maritalStatus');
-        $visaShortForm->relegion = $request->input('relegion');
+        $visaShortForm->religion = $request->input('religion');
+        $visaShortForm->name_of_mehram = $request->input('nameOfMehram');
+        $visaShortForm->relationship_with_mehram = $request->input('relationshipWithMehram');
         $visaShortForm->dependants = $request->input('dependants');
-        $visaShortForm->telephone_number = $request->input('telephoneNumber');
+        $visaShortForm->telephone_number_UK = $request->input('telephoneNumberUK');
         $visaShortForm->save();
 
         return redirect('/visas')->with('success', 'Visa Short Form Application Created');
@@ -84,17 +85,18 @@ class VisaShortFormController extends Controller
      */
     public function update(Request $request, VisaShortForm $visaShortForm)
     {
-        $visaShortForm->no_of_people_travelling = $request->input('noOfPeopleTravelling');
-        $visaShortForm->mehram = $request->input('mehram');
+        $visaShortForm->full_name = $request->input('fullName');
         $visaShortForm->family_name = $request->input('familyName');
         $visaShortForm->mother_name = $request->input('motherName');
         $visaShortForm->previous_nationality = $request->input('previousNationality');
-        $visaShortForm->present_nationality = $request->input('presentNationality');
         $visaShortForm->profession = $request->input('profession');
+        $visaShortForm->permanent_address_UK = $request->input('permanentAddressUK');
         $visaShortForm->marital_status = $request->input('maritalStatus');
-        $visaShortForm->relegion = $request->input('relegion');
+        $visaShortForm->religion = $request->input('religion');
+        $visaShortForm->name_of_mehram = $request->input('nameOfMehram');
+        $visaShortForm->relationship_with_mehram = $request->input('relationshipWithMehram');
         $visaShortForm->dependants = $request->input('dependants');
-        $visaShortForm->telephone_number = $request->input('telephoneNumber');
+        $visaShortForm->telephone_number_UK = $request->input('telephoneNumberUK');
         $visaShortForm->save();
     }
 

@@ -21,9 +21,10 @@
     </div>
     <div id="contact" class="section wb">
         <div class="container">
-            <div class="journey-page-form form-text-style">
-                <form name="journeyPageOne" method="post" action="{{ route('journey.store') }}">
+            <div class="visa-page-two-form form-text-style">
+                <form name="visaPagetwo" method="post" action="{{ route('visa-page-2', $visa) }}">
                     {{ csrf_field() }}
+                    {{ method_field('PUT') }}
                     <input type="hidden" id="userinfo_page" value="userinfo_page_one" />
                     <fieldset>
                         <div class="col-sm-10 custom-hr"></div>
@@ -62,6 +63,16 @@
                             <label for="form_field_expiryDate" class="col-sm-5 col-form-label">Expiry Date: </label>
                             <div class="col-sm-6">
                                 <input type="date" class="form-control" id="form_field_expiryDate" name="expiryDate" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="form_field_dependants" class="col-sm-5 col-form-label">Any Dependants:</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="dependants" id="form_field_dependants">
+                                    <option selected disabled>Please choose</option>
+                                    <option value=1>Yes</option>
+                                    <option value=0>No</option>
+                                </select>
                             </div>
                         </div>
 

@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "64ef8076f800bc3c08b3867329f18ad4",
@@ -3628,16 +3628,16 @@
         },
         {
             "name": "tcg/voyager",
-            "version": "v1.2.2",
+            "version": "v1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/the-control-group/voyager.git",
-                "reference": "00c7b80855589b98dca6a692c9abcdd000c6fb7f"
+                "reference": "b0981fd7a5bb52e0f4f8d0627e8ff048b21651c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/00c7b80855589b98dca6a692c9abcdd000c6fb7f",
-                "reference": "00c7b80855589b98dca6a692c9abcdd000c6fb7f",
+                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/b0981fd7a5bb52e0f4f8d0627e8ff048b21651c9",
+                "reference": "b0981fd7a5bb52e0f4f8d0627e8ff048b21651c9",
                 "shasum": ""
             },
             "require": {
@@ -3689,7 +3689,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2019-03-09T18:54:39+00:00"
+            "time": "2019-06-06T11:16:17+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

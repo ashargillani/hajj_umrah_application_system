@@ -23,17 +23,29 @@ Route::get('/journey-page', function () {
     return view('journey.journey_page_1');
 })->name('journey_page');
 
+Route::get('/journey-page-2', function () {
+    return view('journey.journey_page_2');
+})->name('journey_page_2');
+
+
 Route::get('/visa-page-1', function () {
     return view('visas.visa_page_1');
 })->name('visa-page-1');
 
-Route::get('/visa-page-2', function () {
-    return view('visas.visa_page_1');
+Route::post('/visa-page-1', [
+    'as' => 'visa.store',
+    'uses' => 'VisaController@store'
+]);
+
+Route::get('/visa-page-2/{visa}/edit', function () {
+    return view('visas.visa_page_2');
 })->name('visa-page-2');
 
-Route::get('/journey-page-2', function () {
-    return view('journey.journey_page_2');
-})->name('journey_page_2');
+Route::put('/visa-page-2/{visa}', [
+    'as' => 'visa.page2Store',
+    'uses' => 'VisaController@page2Store'
+]);
+
 
 Route::get('/journey-page-3', [
     'as' => 'show.packages',
